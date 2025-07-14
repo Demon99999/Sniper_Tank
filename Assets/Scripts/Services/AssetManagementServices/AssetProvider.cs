@@ -16,9 +16,9 @@ namespace Assets.Scripts.Services.AssetManagementServices
             _assetRequests = new Dictionary<string, AsyncOperationHandle>();
         }
 
-        public void InitializeAsync()
+        public async UniTask InitializeAsync()
         {
-            Addressables.InitializeAsync().ToUniTask();
+            await Addressables.InitializeAsync().ToUniTask();
         }
 
         public void CleanUp()

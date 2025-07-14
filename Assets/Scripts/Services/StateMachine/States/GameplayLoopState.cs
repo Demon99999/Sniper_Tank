@@ -1,17 +1,17 @@
-using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.Services.StateMachine.States
 {
     public class GameplayLoopState : IState
     {
-        public void Enter()
+        public async UniTask Enter()
         {
             throw new System.NotImplementedException();
         }
 
-        public void Exit()
+        public UniTask Exit()
         {
-            throw new System.NotImplementedException();
+            return default;
         }
     }
 }

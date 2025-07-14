@@ -1,0 +1,35 @@
+﻿using UnityEngine;
+
+namespace Assets.Scripts.Services.StaticData.ScriptableConfig
+{
+    [CreateAssetMenu(fileName = "AnimationsConfig", menuName = "Configs/Create new animations config", order = 51)]
+    public class AnimationsConfig : ScriptableObject
+    {
+        public AnimationCurve TankShootingAnimationCurve;
+        public uint TankShootingRotationAngle;
+        public float TankShootingDuration;
+
+        public AnimationCurve TankScalingAnimationCurve;
+        public float TankScalingDuration;
+
+        public AnimationCurve DecalScalingAnimationCurve;
+        public float DecalScalingDuration;
+
+        public AnimationCurve DroneDefeatRecoveryProgressButtonAnimationCurve;
+        public float DroneDefeateRecoveryProgressButtonAnimationDuration;
+
+        public float DroneAnimationRadius;
+        public float DroneAnimationSpeed;
+
+        public AnimationCurve TankAimCellAnimationCurve;
+        public float TankAimCellAnimationDuration;
+
+        public AnimationCurve RouletteAnimationCurve;
+        public float RouletteRotateDuration;
+
+        public float WalletValueChangingDuration;
+
+        public float MoneyEffectDelay;
+        public float MoneyEffectRadius;
+    }
+}

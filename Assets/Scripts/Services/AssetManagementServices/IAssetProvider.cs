@@ -12,7 +12,7 @@ namespace Assets.Scripts.Services.AssetManagementServices
             where TAsset : class;
         UniTask<TAsset[]> LoadAll<TAsset>(List<string> keys)
             where TAsset : class;
-        void InitializeAsync();
+        UniTask InitializeAsync();
         UniTask WarmupAssetsByLable(string label);
         UniTask<List<string>> GetAssetsListByLabel<TAsset>(string label);
         void CleanUp();
