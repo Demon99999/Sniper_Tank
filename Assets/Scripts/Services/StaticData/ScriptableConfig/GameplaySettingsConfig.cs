@@ -1,0 +1,18 @@
+﻿using UnityEngine;
+
+namespace Assets.Scripts.Services.StaticData.ScriptableConfig
+{
+    [CreateAssetMenu(fileName = "GameplaySettingsConfig", menuName = "Configs/Create new gameplay settings config", order = 51)]
+    public class GameplaySettingsConfig : ScriptableObject
+    {
+        public float EnemyScatter;
+        public LayerMask EnemyLayerMask;
+        public uint PlayerHealth;
+        public float WindowsSwitchDeley;
+        public float ProgressRecoveryAvailableTime;
+        public float ReloadDuration;
+        public float PlayerShootCooldown;
+        public uint RewardPerEnemy;
+        public float RewardLevelModifier;
+    }
+}
