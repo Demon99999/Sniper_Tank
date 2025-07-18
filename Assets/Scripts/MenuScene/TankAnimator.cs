@@ -15,7 +15,7 @@ namespace Assets.Scripts.MenuScene
         [Inject]
         private void Construct(IStaticDataService staticDataService)
         {
-            //AnimationsConfig = staticDataService.AnimationsConfig;
+            AnimationsConfig = staticDataService.AnimationsConfig;
         }
 
         public void Play()

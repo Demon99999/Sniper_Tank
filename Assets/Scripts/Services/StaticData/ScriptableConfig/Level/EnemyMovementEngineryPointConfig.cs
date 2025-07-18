@@ -1,6 +1,5 @@
 ﻿using System;
-using Assets.Scripts.Enemis;
-using Assets.Scripts.Enemis.Points;
+using Assets.Scripts.GamePlay.Enemis.Points;
 using Assets.Scripts.Infrastructure.Factoris.GamePlayFactory;
 using Assets.Sources.Services.StaticDataService.Configs;
 using Cysharp.Threading.Tasks;

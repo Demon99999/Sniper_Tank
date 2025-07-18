@@ -1,5 +1,5 @@
 ﻿using System;
-using Assets.Scripts.Enemis;
+using Assets.Scripts.GamePlay.Enemis;
 using Assets.Scripts.Infrastructure.Factoris.GamePlayFactory;
 using Assets.Sources.Services.StaticDataService.Configs;
 using Cysharp.Threading.Tasks;
@@ -23,9 +23,9 @@ namespace Assets.Scripts.Services.StaticData.ScriptableConfig.Level
             EnemyType = enemyType;
         }
 
-        //public virtual async UniTask<Enemy> Create(IGameplayFactory gameplayFactory)
-        //{
-        //    //await gameplayFactory.CreateEnemy(EnemyType, StartPosition, StartRotation);
-        //}
+        public virtual async UniTask<Enemy> Create(IGameplayFactory gameplayFactory)
+        {
+            return await gameplayFactory.CreateEnemy(EnemyType, StartPosition, StartRotation);
+        }
     }
 }
