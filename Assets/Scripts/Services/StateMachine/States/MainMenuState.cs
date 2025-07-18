@@ -41,7 +41,7 @@ namespace Assets.Scripts.Services.StateMachine.States
         {
             _loadingCurtain.Hide();
             await _assetProvider.WarmupAssetsByLable(AssetLabels.MainMenu);
-            //await _sceneLoader.Load(_staticDataService.GetLevelsSequence(_persistentProgressService.Progress.CurrentBiomeType).MainMenuScene);
+            await _sceneLoader.Load(_staticDataService.GetLevelsSequence(_persistentProgressService.Progress.CurrentBiomeType).MainMenuScene);
             _inputService.SetActive(true);
         }
 

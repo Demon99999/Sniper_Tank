@@ -32,22 +32,26 @@ namespace Assets.Scripts.MenuScene.Desk
         private void OnDestroy()
         {
             foreach (DeskCell deskCell in _cells)
+            {
                 deskCell.EmploymentChanged -= OnDeskCellEmploymentChanged;
+            }
         }
 
-        //public async UniTask CreateTank(uint level)
-        //{
-        //    DeskCell[] emptyCells = _cells.Where(cell => cell.IsEmpty).ToArray();
+        public async UniTask CreateTank(uint level)
+        {
+            DeskCell[] emptyCells = _cells.Where(c => c.IsEmpty).ToArray();
 
-        //    DeskCell cell = emptyCells[Random.Range(0, emptyCells.Length)];
+            DeskCell cell = emptyCells[Random.Range(0, emptyCells.Length)];
 
-        //    await cell.CreateTank(level, true, false);
+            await cell.CreateTank(level, true, false);
 
-        //    _saveLoadService.SaveProgress();
-        //}
+            _saveLoadService.SaveProgress();
+        }
 
-        private void OnDeskCellEmploymentChanged() =>
+        private void OnDeskCellEmploymentChanged()
+        {
             EmploymentChanged?.Invoke(HasEmptyCells);
+        }
 
         public class Factory : PlaceholderFactory<string, UniTask<Desk>>
         {

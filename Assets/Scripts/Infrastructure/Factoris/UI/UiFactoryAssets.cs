@@ -1,0 +1,25 @@
+﻿namespace Assets.Scripts.Infrastructure.Factoris.UI
+{
+    public class UiFactoryAssets
+    {
+        public const string TankGameplayWindow = "TankGameplayWindow";
+        public const string DroneGameplayWindow = "DroneGameplayWindow";
+        public const string MainMenuWindow = "MainMenuWindow";
+        public const string TankPanel = "TankPanel";
+        public const string UnlockingPanel = "TankSkinPanel";
+        public const string TankDefeatWindow = "TankDefeatWindow";
+        public const string VictoryWindow = "VictoryWindow";
+        public const string LoadingCurtain = "LoadingCurtain";
+        public const string DroneDefeatWindow = "DroneDefeatWindow";
+        public const string CharacterSkinPanel = "CharacterSkinPanel";
+        public const string OptionsWindow = "OptionsWindow";
+        public const string ProgressBarElement = "ProgressBarElement";
+        public const string TankBulletIcon = "TankBulletIcon";
+        public const string SuperBulletIcon = "SuperBulletIcon";
+        public const string DroneBulletIcon = "DroneBulletIcon";
+        public const string RestartWindow = "RestartWindow";
+        public const string DecalPanel = "DecalPanel";
+        public const string RouletteVictoryWindow = "RouletteVictoryWindow";
+        public const string CharacterRewardVictoryWindow = "CharacterRewardVictoryWindow";
+    }
+}

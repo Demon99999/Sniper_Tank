@@ -39,8 +39,10 @@ namespace Assets.Scripts.MenuScene.Desk
             _inputService.HandleMoveCompleted -= OnHandleMoveCompleted;
         }
 
-        public void SetActive(bool isActive) =>
+        public void SetActive(bool isActive)
+        {
             _isActive = isActive;
+        }
 
         private void OnHandlePressed(Vector2 handlePosition)
         {
@@ -98,7 +100,7 @@ namespace Assets.Scripts.MenuScene.Desk
                 else
                 {
                     _tankWrapper.Destroy();
-                    //await deskCell.UpgradeTank();
+                    await deskCell.UpgradeTank();
                 }
             }
             else

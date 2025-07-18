@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Assets.Scripts.Enemis.Points;
+using Assets.Scripts.GamePlay.Enemis.Points;
 using Assets.Sources.Services.StaticDataService.Configs;
 using UnityEngine;
 
