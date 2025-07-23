@@ -10,7 +10,7 @@ namespace Assets.Scripts.GamePlay
         private readonly Collider[] _overlapColliders = new Collider[32];
 
         [SerializeField] private ParticleSystem _explosionParticlePrefab;
-        //[SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioSource _audioSource;
 
         public event Action Exploded;
 
@@ -30,7 +30,7 @@ namespace Assets.Scripts.GamePlay
                 {
                     bool isDamageableCollided = Vector3.Distance(position, _overlapColliders[i].ClosestPoint(position)) < CollidingDelat;
                     damageable.TakeDamage(new ExplosionInfo(position, explosionForce, isDamageableCollided, damage));
-                    //_audioSource.Play();
+                    _audioSource.Play();
                 }
             }
 

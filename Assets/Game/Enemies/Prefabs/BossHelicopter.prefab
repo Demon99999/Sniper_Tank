@@ -569,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
+  _audioSource: {fileID: 8083058389476207978}
   _explosionDuration: 1
 --- !u!54 &3471639150113586106
 Rigidbody:

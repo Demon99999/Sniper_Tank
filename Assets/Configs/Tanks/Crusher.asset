@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda2bbbd3a7f86e49ba335385cb226bb, type: 3}
+  m_Name: Crusher
+  m_EditorClassIdentifier: 
+  Level: 2
+  AssetReference:
+    m_AssetGUID: 64bdfd1708b53a541a21ebad7aca690e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  IsUnlockOnStart: 0
+  BaseMaterialAssetReference:
+    m_AssetGUID: 75f645f17e9aea64989a4478351f9b41
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  MainMenuWrapperAssetReference:
+    m_AssetGUID: c30262cfdd5cab4449447f84ac3a9ea6
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  GameplayWrapperAssetReference:
+    m_AssetGUID: 62f20867419760745bfe15bf0c718bd7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  Name: "\u0414\u0420\u041E\u0411\u0418\u0422\u0415\u041B\u042C"
+  Icon:
+    m_AssetGUID: 87589807af4d06a46960ef975b350600
+    m_SubObjectName: CrusherIcon
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1

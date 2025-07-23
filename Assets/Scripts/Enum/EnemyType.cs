@@ -1,6 +1,19 @@
 ﻿namespace Assets.Sources.Services.StaticDataService.Configs
 {
-    public class EnemyType
+    public enum EnemyType
     {
+        MachineGunner,
+        Bazooker,
+        Patroling,
+        BazookerCar,
+        Tank,
+        Helicopter,
+        BuildingBazooker,
+        BuildingMachineGunner,
+        MachineGunnerCar,
+        Robot,
+        Boot,
+        BossHelicopter,
+        Submarine,
     }
 }

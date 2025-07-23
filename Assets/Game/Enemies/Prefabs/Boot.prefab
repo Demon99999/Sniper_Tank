@@ -151,13 +151,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2d1f8a08fc85846aa1bb78a3f4dc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
-  _destructionedMaterialRenderer: {fileID: 0}
-  _collider: {fileID: 0}
-  _rigidbody: {fileID: 0}
-  _destructionParts: []
-  _enemyEngineryExplosion: {fileID: 0}
-  _attackedEnemy: {fileID: 0}
+  _health: 10
+  _destructionedMaterialRenderer: {fileID: 3902970960277268018}
+  _collider: {fileID: 2493728458104089607}
+  _rigidbody: {fileID: 4031075043308204981}
+  _destructionParts:
+  - {fileID: 87107389709605351}
+  - {fileID: 2265048189868856680}
+  _enemyEngineryExplosion: {fileID: 5527617183447019815}
+  _attackedEnemy: {fileID: 3160690430886350046}
 --- !u!114 &3902970960277268018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0632fc1d005552d43902df0cbdfa2408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _renderers: []
+  _renderers:
+  - {fileID: 5479091057637816983}
+  - {fileID: 3161315806046076840}
+  - {fileID: 4453835147802581307}
 --- !u!65 &2493728458104089607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -232,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
+  _audioSource: {fileID: 1175342622397947753}
   _explosionDuration: 1
 --- !u!82 &1175342622397947753
 AudioSource:
@@ -878,6 +884,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6810331dcd1ab874297599b0bb26ff31, type: 3}
+--- !u!114 &2265048189868856680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2901453770088318663, guid: 6810331dcd1ab874297599b0bb26ff31, type: 3}
+  m_PrefabInstance: {fileID: 3975299164334674863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73313a0f07e2b54783330ccdcf959cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3647491695524138064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411349118769963007, guid: 6810331dcd1ab874297599b0bb26ff31, type: 3}

@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bb4ba18a3e9d7468f71cac65415b71, type: 3}
+  m_Name: AnimationsConfig
+  m_EditorClassIdentifier: 
+  TankShootingAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 7.461755
+      outSlope: 7.461755
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.1952921
+    - serializedVersion: 3
+      time: 0.25971413
+      value: 1
+      inSlope: -0.018946188
+      outSlope: -0.018946188
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.4832442
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -3.5836573
+      outSlope: -3.5836573
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11056431
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  TankShootingRotationAngle: 5
+  TankShootingDuration: 0.3
+  TankScalingAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.40428302
+      outSlope: -0.40428302
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.12367576
+      value: 0.95
+      inSlope: -0.0018580288
+      outSlope: -0.0018580288
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.9280659
+    - serializedVersion: 3
+      time: 0.470096
+      value: 1.05
+      inSlope: 0.00016969765
+      outSlope: 0.00016969765
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.649034
+    - serializedVersion: 3
+      time: 0.85
+      value: 0.98
+      inSlope: 0.006052309
+      outSlope: 0.006052309
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.37441146
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.3715937
+      outSlope: 0.3715937
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38888898
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  TankScalingDuration: 0.4
+  DecalScalingAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.4254451
+      outSlope: 0.4254451
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.470096
+      value: 1.2
+      inSlope: 0.00016969765
+      outSlope: 0.00016969765
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.649034
+    - serializedVersion: 3
+      time: 0.85
+      value: 0.9
+      inSlope: -0.0049809227
+      outSlope: -0.0049809227
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.37441146
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.3715937
+      outSlope: 0.3715937
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38888898
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DecalScalingDuration: 0.2
+  DroneDefeatRecoveryProgressButtonAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.0010631863
+      outSlope: 0.0010631863
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.433025
+    - serializedVersion: 3
+      time: 0.5
+      value: 1.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.0008209788
+      outSlope: -0.0008209788
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5607773
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  DroneDefeateRecoveryProgressButtonAnimationDuration: 1.5
+  DroneAnimationRadius: 0.4
+  DroneAnimationSpeed: 0.1
+  TankAimCellAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 26.712324
+      outSlope: 26.712324
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.061065905
+    - serializedVersion: 3
+      time: 0.1
+      value: 1
+      inSlope: 0.0015619069
+      outSlope: 0.0015619069
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.27611935
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -3.2021127
+      outSlope: -3.2021127
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10502292
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  TankAimCellAnimationDuration: 0.3
+  RouletteAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.40833333
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 2
+      outSlope: -2
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.38333333
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0.007075474
+      outSlope: 0.007075474
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6666666
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RouletteRotateDuration: 1
+  WalletValueChangingDuration: 1
+  MoneyEffectDelay: 0.4
+  MoneyEffectRadius: 140

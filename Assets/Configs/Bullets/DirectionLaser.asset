@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b527d4f8d450c49abfe47dbeed6945, type: 3}
+  m_Name: DirectionLaser
+  m_EditorClassIdentifier: 
+  AssetReference:
+    m_AssetGUID: 0b6c953f9a49bee4bb03200a78d0412f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  ExplosionLifeTime: 1
+  ExplosionForce: 200
+  ExplosionRadius: 4
+  Damage: 10
+  ProjectileLifeTime: 0.15

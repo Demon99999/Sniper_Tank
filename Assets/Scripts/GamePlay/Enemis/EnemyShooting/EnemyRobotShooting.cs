@@ -63,7 +63,7 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
 
                         bool isHitted = Physics.Raycast(GetCurrentShootingPosition(), _laser.transform.forward, out RaycastHit hitInfo, RaycasDistance);
 
-                        //_laser.SetLaser(GetCurrentShootingPosition(), hitInfo.point);
+                        _laser.SetLaser(GetCurrentShootingPosition(), hitInfo.point);
 
                         if (attackPassedTime >= _damageCooldown)
                         {

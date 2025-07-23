@@ -11,20 +11,20 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerProjectile
+  - Wrapper
+  - IgnoreProjectile
+  - PlayerBase
+  - PlayerTankWrapper
+  - EnemyProjectile
+  - Enemy
+  - DestructionParts
+  - Boot
+  - IgnoreEnemyProjectiles
+  - Bomb
+  - Borier
+  - CharacterRewardWictoryWindow
+  - EnemyRobot
   - 
   - 
   - 

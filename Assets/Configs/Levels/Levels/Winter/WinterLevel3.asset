@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3c9c7bbdebfbc47b7e02ddcf585361, type: 3}
+  m_Name: WinterLevel3
+  m_EditorClassIdentifier: 
+  LevelKey: Winter3
+  StaticEnemyPoints:
+  - Id: GameplayScene_2dcccad7-efc5-42f8-a728-4f83a2de8bb2
+    StartPosition: {x: 26.661, y: 6.3, z: 14.941}
+    StartRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+    EnemyType: 7
+  - Id: GameplayScene_1bd176b9-8980-402a-837a-56ccb35cdbc5
+    StartPosition: {x: 33.54, y: 0, z: 33.64}
+    StartRotation: {x: 0, y: 1, z: 0, w: 0}
+    EnemyType: 4
+  - Id: Winter3_9cee5e71-beb0-4413-a455-4b86611156be
+    StartPosition: {x: 42.12, y: 8.2, z: 42.41}
+    StartRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+    EnemyType: 6
+  PatrolingEnemyPoints: []
+  MovementEngineryPoints: []
+  HelicopterPoints:
+  - Id: GameplayScene_389b3421-3a55-46cb-9fa9-bd371a904e99
+    StartPosition: {x: 50.980003, y: 3.86, z: 33.48}
+    StartRotation: {x: 0, y: 0, z: 0, w: 1}
+    EnemyType: 5
+    Path:
+    - Position: {x: 50.670002, y: 4.5599995, z: 39.870003}
+      RotationAngle: 0
+      RotationDelta: 5
+    - Position: {x: 59.600002, y: 4.5599995, z: 39.4}
+      RotationAngle: 0
+      RotationDelta: 5
+    - Position: {x: 55.2, y: 4.56, z: 28.800001}
+      RotationAngle: 0
+      RotationDelta: 5
+    Speed: 12
+    IsWaitedAttack: 0
+    IsPathLooped: 1
+    WaitingTimeOnPoint: 0
