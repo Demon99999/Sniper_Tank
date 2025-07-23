@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3786087069815121574}
-  _weapon: {fileID: 0}
+  _weapon: {fileID: 3810494057003041617}
   _weaponCollider: {fileID: 7065261586799319966}
   _ragdoll: {fileID: 7310258985542695160}
 --- !u!114 &5846726738372245280

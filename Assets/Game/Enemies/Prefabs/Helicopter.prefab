@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3207322444923797995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f2fbbe19c6e9c4a8c8b583120f83ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 507b069c0bb18c24a89a4fc138611284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5048382830461187493
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5048382830461187493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e43aa6d4011d4c4b98b93da00f1f826, type: 3}
+  m_Script: {fileID: 11500000, guid: 4426c13753594544f801d2aa823351c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 480
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5048382830461187493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670b8fe3fe6080f449c2868e3a88f995, type: 3}
+  m_Script: {fileID: 11500000, guid: 168caf15338f2bb4a93aaf3ebf7c9158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isDestroyedImmediately: 0
@@ -328,11 +328,11 @@ GameObject:
   - component: {fileID: 155716532587871504}
   - component: {fileID: 5201483775939980925}
   - component: {fileID: 8718870012506601473}
-  - component: {fileID: 8372115020417162634}
   - component: {fileID: 693458180059786066}
   - component: {fileID: 4710639151729731681}
   - component: {fileID: 7066166561769253202}
   - component: {fileID: 8307765225460084034}
+  - component: {fileID: 6905384351207792291}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5734879020999951373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762020fe674962a49979da9cdd393c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 34b41b9d73f389349be49cde40469f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 155716532587871504}
@@ -374,7 +374,7 @@ MonoBehaviour:
   _tiltForce: 15
   _turnTiltForce: 15
   _effectiveHeight: 30
-  _rotationSpeed: 30
+  _rotationSpeed: 60
   _enemy: {fileID: 5201483775939980925}
   _engineEfficiency: 1
 --- !u!54 &155716532587871504
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5734879020999951373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ba16e0277b89d42b59619c0c59d2a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 966b9fb0697d7af47bbe13e5658a36b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _helicopterPart: {fileID: 7523430705784327834}
@@ -435,37 +435,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5734879020999951373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c6c963006f7f5b43a8e01e34e2d436c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0632fc1d005552d43902df0cbdfa2408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _renderers:
-  - {fileID: 7736381170941973697}
-  - {fileID: 6707201713823264598}
-  - {fileID: 850433254283877762}
-  - {fileID: 8314158591355636096}
---- !u!114 &8372115020417162634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5734879020999951373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee7e010c546dbd4088d33e36079bc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemy: {fileID: 5201483775939980925}
-  _audioSource: {fileID: 4710639151729731681}
-  _reloadDuration: 2
-  _shootCooldown: 0.2
-  _bulletType: 4
-  _bulletsCapacity: 4
-  _muzzleType: 0
-  _bulletPoints:
-  - {fileID: 1977990116444660383}
-  - {fileID: 2116449120938699159}
-  _helicopter: {fileID: 1191362815725077543}
+  _renderers: []
 --- !u!114 &693458180059786066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,11 +448,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5734879020999951373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65c539ea54cfb24881b13f67889d81c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fca67fd6b433554c9b3ed11d4248923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f,
-    type: 3}
+  _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
   _audioSource: {fileID: 7066166561769253202}
   _explosionDuration: 1
 --- !u!82 &4710639151729731681
@@ -491,8 +463,7 @@ AudioSource:
   m_GameObject: {fileID: 5734879020999951373}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 5062784526437014987, guid: 27a7e8258ea045b408a494045b2e87b4,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 5062784526437014987, guid: 27a7e8258ea045b408a494045b2e87b4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 592ea6267aa2fc84babcbd90a8cccc94, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
@@ -588,8 +559,7 @@ AudioSource:
   m_GameObject: {fileID: 5734879020999951373}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -5844739401592513887, guid: 27a7e8258ea045b408a494045b2e87b4,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: -5844739401592513887, guid: 27a7e8258ea045b408a494045b2e87b4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 37c2d708f15507f4b892abd750abcba2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -685,8 +655,7 @@ AudioSource:
   m_GameObject: {fileID: 5734879020999951373}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 5062784526437014987, guid: 27a7e8258ea045b408a494045b2e87b4,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 5062784526437014987, guid: 27a7e8258ea045b408a494045b2e87b4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2cf8a2521b3d1ff4f8a7974ddc6d47d1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
@@ -773,6 +742,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6905384351207792291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5734879020999951373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e7c22f112ff804fbae9b784fedf305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 5201483775939980925}
+  _audioSource: {fileID: 4710639151729731681}
+  _reloadDuration: 2
+  _shootCooldown: 0.2
+  _bulletType: 4
+  _bulletsCapacity: 4
+  _muzzleType: 0
+  _bulletPoints:
+  - {fileID: 1977990116444660383}
+  - {fileID: 2116449120938699159}
+  _helicopter: {fileID: 1191362815725077543}
 --- !u!1 &6565322586984806766
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +945,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7521344806533752917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670b8fe3fe6080f449c2868e3a88f995, type: 3}
+  m_Script: {fileID: 11500000, guid: 168caf15338f2bb4a93aaf3ebf7c9158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isDestroyedImmediately: 0
@@ -966,7 +958,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7521344806533752917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41a55d79de339c044a456490a0dc8d58, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eb51fc81d4589e458509dc280550606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _infos:
@@ -1079,7 +1071,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8036439468000317883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e43aa6d4011d4c4b98b93da00f1f826, type: 3}
+  m_Script: {fileID: 11500000, guid: 4426c13753594544f801d2aa823351c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 480
@@ -1142,7 +1134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8036439468000317883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670b8fe3fe6080f449c2868e3a88f995, type: 3}
+  m_Script: {fileID: 11500000, guid: 168caf15338f2bb4a93aaf3ebf7c9158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isDestroyedImmediately: 0

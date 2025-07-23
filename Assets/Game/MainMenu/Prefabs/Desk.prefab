@@ -381,6 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6100401773788368253}
   - component: {fileID: 5826012798169725076}
+  - component: {fileID: 6467925720255996857}
   m_Layer: 0
   m_Name: Desk
   m_TagString: Untagged
@@ -429,6 +430,22 @@ MonoBehaviour:
   - {fileID: 150168338839991862}
   - {fileID: 2916782702262706148}
   - {fileID: 3041707802849260387}
+--- !u!114 &6467925720255996857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7312446752611664544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f8f25d1f231fa489e8482b933e086e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tankPoint: {fileID: 1507788426044072568}
+  _spawnRotation: {x: 0, y: 0.9238795, z: 0, w: 0.38268343}
+  _scalingAnimator: {fileID: 3024959381914209819}
+  _tankLevelValue: {fileID: 8219797139935750038}
 --- !u!1 &8089494198016763866
 GameObject:
   m_ObjectHideFlags: 0

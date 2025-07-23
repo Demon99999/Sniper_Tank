@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117777c913ce0dc42940b8fea86cc430, type: 3}
+  m_Name: DecalConfig 15
+  m_EditorClassIdentifier: 
+  Id: Decal15
+  MaterialAssetReference:
+    m_AssetGUID: 6a553d665e57eb14883f59d0f6915247
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  IsUnlockedOnStart: 0
+  SpriteAssetReference:
+    m_AssetGUID: 4f70057de4ccbbf4fb6c9cbae6e5697e
+    m_SubObjectName: Decal15
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  SerialNumber: 15

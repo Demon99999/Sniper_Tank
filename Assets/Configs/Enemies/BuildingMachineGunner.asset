@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ad5ba0cb416be479fa503c6dc244f5, type: 3}
+  m_Name: BuildingMachineGunner
+  m_EditorClassIdentifier: 
+  Type: 7
+  AssetReference:
+    m_AssetGUID: f08d9fcd534fdf14ab29cfaf31b4cf80
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

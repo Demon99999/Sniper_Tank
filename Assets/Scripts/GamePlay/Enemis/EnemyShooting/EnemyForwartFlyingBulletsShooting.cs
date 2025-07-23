@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using Assets.Scripts.Enum;
 using Assets.Scripts.GamePlay.Player.Wrappers;
+using Assets.Scripts.Infrastructure.Factoris.Bullets;
+using Assets.Scripts.Services.StaticData;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
 {
@@ -17,7 +20,7 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
         [SerializeField] private uint _bulletsCapacity;
         [SerializeField] private MuzzleType _muzzleType;
 
-        //private IBulletFactory _bulletFactory;
+        private IBulletFactory _bulletFactory;
         private LayerMask _layerMask;
 
         private uint _bulletsCount;
@@ -27,14 +30,14 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
         protected override bool CanShoot => CheckPlayerTankVisibility() && base.CanShoot;
         protected abstract Vector3 LookStartPosition { get; }
 
-        //[Inject]
-        //private void Construct(IBulletFactory bulletFactory, IStaticDataService staticDataService)
-        //{
-        //    _bulletFactory = bulletFactory;
-        //    _layerMask = staticDataService.GameplaySettingsConfig.EnemyLayerMask;
+        [Inject]
+        private void Construct(IBulletFactory bulletFactory, IStaticDataService staticDataService)
+        {
+            _bulletFactory = bulletFactory;
+            _layerMask = staticDataService.GameplaySettingsConfig.EnemyLayerMask;
 
-        //    _bulletsCount = _bulletsCapacity;
-        //}
+            _bulletsCount = _bulletsCapacity;
+        }
 
         public bool CheckPlayerTankVisibility()
         {
@@ -48,7 +51,7 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
         protected void CreateBullet()
         {
             OnShooted();
-            //_bulletFactory.CreateForwardFlyingBullet(_bulletType, _currentShootingPosition, _shootingRotation);
+            _bulletFactory.CreateForwardFlyingBullet(_bulletType, _currentShootingPosition, _shootingRotation);
         }
 
         protected virtual void Shoot() =>
@@ -68,7 +71,7 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
                 _currentShootingPosition = GetCurrentShootPointPosition();
                 _shootingRotation = GetShootingRotation();
                 Shoot();
-                //_bulletFactory.CreateMuzzle(_muzzleType, _currentShootingPosition, _shootingRotation);
+                _bulletFactory.CreateMuzzle(_muzzleType, _currentShootingPosition, _shootingRotation);
                 _bulletsCount--;
 
                 if (_bulletsCount == 0)

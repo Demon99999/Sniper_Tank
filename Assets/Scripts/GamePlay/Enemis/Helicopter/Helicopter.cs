@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Assets.Scripts.GamePlay.Bullets;
 using Assets.Scripts.GamePlay.Destructions;
 using UnityEngine;
 
@@ -32,8 +33,8 @@ namespace Assets.Scripts.GamePlay.Enemis.Helicopter
 
         private void OnCollisionEnter(Collision collision)
         {
-            //if (IsDestructed == false || collision.transform.TryGetComponent(out CollidingBullet _))
-            //    return;
+            if (IsDestructed == false || collision.transform.TryGetComponent(out CollidingBullet _))
+                return;
 
             _isRotated = false;
 

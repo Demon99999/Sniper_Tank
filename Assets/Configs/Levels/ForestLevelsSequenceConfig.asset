@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a82991170492d4d82201a0e4901c4e, type: 3}
+  m_Name: ForestLevelsSequenceConfig
+  m_EditorClassIdentifier: 
+  Type: 0
+  Sequence:
+  - Forest1
+  - Forest2
+  - Forest3
+  - Forest4
+  - Forest5
+  - Forest6
+  MainMenuScene: ForestMainMenuScene
+  IconReference:
+    m_AssetGUID: 0a0ea6f579e6ce74ea83a323e48cb59f
+    m_SubObjectName: ForestBiomeIcon
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1

@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3650473663455840866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2873176821194464424, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: _playerTankWeapon
+      value: 
+      objectReference: {fileID: 3638175045362358233}
+    - target: {fileID: 5390547600223480320, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b0b70517a3cc13f43980adf2a1f44586, type: 3}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480365533733352306, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873532357439405360, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873532357439405360, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b0b70517a3cc13f43980adf2a1f44586, type: 3}
+    - target: {fileID: 7781927987846206745, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: _playerTankWeapon
+      value: 
+      objectReference: {fileID: 3638175045362358233}
+    - target: {fileID: 8102308152371460489, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      propertyPath: m_Name
+      value: AnihilatorGameplayWrapper
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2873176821194464424, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8102308152371460489, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3638175045362358233}
+    - targetCorrespondingSourceObject: {fileID: 8102308152371460489, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6122825690444103670}
+  m_SourcePrefab: {fileID: 100100000, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+--- !u!1 &4816661522416563179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8102308152371460489, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+  m_PrefabInstance: {fileID: 3650473663455840866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3638175045362358233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816661522416563179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6347e828b426a8045aa69f99446a04f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletsCapacity: 4
+  _requireShotsNumberToSuperShot: 3
+  _bulletShootsCount: 1
+  _bulletShootsDuration: 0
+  _superBulletShootsCount: 1
+  _supperBulletShootsDuration: 0
+  _audioSource: {fileID: 8675626198339149922}
+--- !u!114 &6122825690444103670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816661522416563179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be6d08f279f3a0458f95a9e7cacc9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerTankWeapon: {fileID: 3638175045362358233}
+  _smokeParticlePrefab: {fileID: 199316, guid: 3a4f715ea77c072499ca77c2f4a2ce5d, type: 3}
+--- !u!82 &8675626198339149922 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5390547600223480320, guid: 605391bb16fae904c98fc0e88c530451, type: 3}
+  m_PrefabInstance: {fileID: 3650473663455840866}
+  m_PrefabAsset: {fileID: 0}
