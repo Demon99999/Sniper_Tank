@@ -14,9 +14,24 @@ namespace Assets.Scripts.GamePlay.Enemis.MaterialChanger
         [Inject]
         private void Construct(IPersistentProgressService persistentProgressService)
         {
+            if (_infos == null || _infos.Length == 0)
+            {
+                Debug.LogError($"No biome materials configured on {gameObject.name}", this);
+                Debug.Log(gameObject.name);
+                return;
+            }
+
             BiomeType currentBiomeType = persistentProgressService.Progress.CurrentBiomeType;
 
-            MatchingMaterialToBiome currentMaterialsInfo = _infos.First(info => info.BiomeType == currentBiomeType);
+            MatchingMaterialToBiome currentMaterialsInfo = _infos.FirstOrDefault(info => info.BiomeType == currentBiomeType);
+
+            if (currentMaterialsInfo == null)
+            {
+                // Обработка случая, когда элемент не найден
+                Debug.LogError("Не найден подходящий элемент в коллекции");
+                Debug.Log(gameObject.name);
+                return;
+            }
 
             Material[] materials = _renderer.materials;
 

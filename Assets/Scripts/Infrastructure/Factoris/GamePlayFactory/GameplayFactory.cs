@@ -1,8 +1,10 @@
-﻿using Assets.Scripts.GamePlay.Camera;
+﻿using System;
+using Assets.Scripts.GamePlay.Camera;
 using Assets.Scripts.GamePlay.Enemis;
 using Assets.Scripts.GamePlay.Handlers;
 using Assets.Scripts.GamePlay.Player;
 using Assets.Scripts.Services.StaticData;
+using Assets.Scripts.Services.StaticData.ScriptableConfig;
 using Assets.Sources.Services.StaticDataService.Configs;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -78,11 +80,35 @@ namespace Assets.Scripts.Infrastructure.Factoris.GamePlayFactory
 
         public async UniTask<Enemy> CreateEnemy(EnemyType type, Vector3 position, Quaternion rotation)
         {
-            Enemy enemy = await _enemyFactory.Create(_staticDataService.GetEnemy(type).AssetReference, position, rotation);
+            if (_enemyFactory == null)
+                throw new NullReferenceException("Enemy.Factory is not initialized!");
+
+            // Получение данных врага
+            EnemyConfig enemyData = _staticDataService.GetEnemy(type);
+            if (enemyData == null)
+                throw new NullReferenceException($"No enemy data found for type: {type}");
+
+            // Проверка AssetReference
+            if (enemyData.AssetReference == null)
+                throw new NullReferenceException($"AssetReference for enemy type {type} is missing!");
+
+            // Создание врага
+            Enemy enemy = await _enemyFactory.Create(enemyData.AssetReference, position, rotation);
+
+            // Проверка WinHandler
+            if (_winHandler == null)
+                throw new NullReferenceException("VictoryHandler is not initialized!");
 
             _winHandler.AddEnemy(enemy);
 
             return enemy;
+
+
+            //Enemy enemy = await _enemyFactory.Create(_staticDataService.GetEnemy(type).AssetReference, position, rotation);
+
+            //_winHandler.AddEnemy(enemy);
+
+            //return enemy;
         }
     }
 }

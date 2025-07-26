@@ -11,6 +11,7 @@ using Assets.Scripts.Services.StaticData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 using Zenject;
 
 namespace Assets.Scripts.Ui.Game.VictoryWindow
@@ -18,6 +19,7 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
     public class PlayerCharacterRewardPanel : MonoBehaviour
     {
         private const string Layer = "CharacterRewardVictoryWindow";
+        private const int RewardID = 1;
 
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private Button _collectButton;
@@ -49,27 +51,13 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
             _gameplayFactory = gameplayFactory;
 
             _collectButton.onClick.AddListener(OnCollectButtonClicked);
+            YandexGame.RewardVideoEvent += OnRewarded;
         }
 
         private void OnDestroy()
         {
             _collectButton.onClick.RemoveListener(OnCollectButtonClicked);
-        }
-
-        private void OnCollectButtonClicked()
-        {
-#if !UNITY_WEBGL || UNITY_EDITOR
-            _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsBuyed = true;
-
-            Hide();
-#else
-            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-            {
-                _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsBuyed = true;
-
-                Hide();
-            });
-#endif
+            YandexGame.RewardVideoEvent -= OnRewarded;
         }
 
         public async UniTask GenerateCharacter()
@@ -105,6 +93,34 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
             _canvasGroup.alpha = 0;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
+        }
+
+        private void OnRewarded(int id)
+        {
+            if (id == RewardID)
+            {
+                _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsBuyed = true;
+                _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsUnlocked = true;
+                Hide();
+            }
+        }
+
+        private void OnCollectButtonClicked()
+        {
+            YandexGame.RewVideoShow(RewardID);
+
+//#if !UNITY_WEBGL || UNITY_EDITOR
+//            _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsBuyed = true;
+
+//            Hide();
+//#else
+//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
+//            {
+//                _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsBuyed = true;
+
+//                Hide();
+//            });
+//#endif
         }
 
         private IEnumerator Rotater()

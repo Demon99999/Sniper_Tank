@@ -28,9 +28,6 @@ namespace Assets.Scripts.Ui.Healthbar
             _healthable = (IHealthable)_healthableBehaviour;
             _playerWrapper = playerWrapper;
 
-            _healthable = (IHealthable)_healthableBehaviour;
-            _playerWrapper = playerWrapper;
-
             if (_showDuration != 0)
                 SetActive(false);
 
@@ -42,11 +39,11 @@ namespace Assets.Scripts.Ui.Healthbar
 
         private void OnValidate()
         {
-            //if (_healthableBehaviour != null && !(_healthableBehaviour is IHealthable))
-            //{
-            //    Debug.LogError($"{nameof(_healthableBehaviour)} is not {typeof(IHealthable)}");
-            //    _healthableBehaviour = null;
-            //}
+            if (_healthableBehaviour != null && !(_healthableBehaviour is IHealthable))
+            {
+                Debug.LogError($"{nameof(_healthableBehaviour)} is not {typeof(IHealthable)}");
+                _healthableBehaviour = null;
+            }
         }
 
         private void OnDestroy()

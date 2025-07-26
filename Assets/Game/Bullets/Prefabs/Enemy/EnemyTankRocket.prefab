@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 19801142, guid: 17733950d4d0cf4439bfc88f4e61297c, type: 3}
-  _audioSource: {fileID: 3435445818432909917}
+  _source: {fileID: 3435445818432909917}
   _projectile: {fileID: 8949854514654441664}
   StartPosition: {x: 0, y: 0, z: 0}
   _rigidbody: {fileID: 3010728338934734121}

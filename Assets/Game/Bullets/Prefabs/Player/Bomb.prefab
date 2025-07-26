@@ -112,8 +112,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2460356773891562753}
   - {fileID: 6237350768933596200}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: a8b24348ed718974cafed3ee7e4bc783, type: 3}
-  _audioSource: {fileID: 6814602980586758914}
+  _source: {fileID: 6814602980586758914}
   _projectile: {fileID: 928422715872475701}
   StartPosition: {x: 0, y: 0, z: 0}
   _rigidbody: {fileID: 3010728338934734121}

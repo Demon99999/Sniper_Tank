@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _audioSource: {fileID: 7066166561769253202}
+  _source: {fileID: 7066166561769253202}
   _explosionDuration: 1
 --- !u!82 &4710639151729731681
 AudioSource:

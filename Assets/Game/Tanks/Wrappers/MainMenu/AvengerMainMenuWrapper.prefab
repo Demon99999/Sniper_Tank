@@ -65,6 +65,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 866938334281171778, guid: 77947621883dd00449ae9fee08be518a, type: 3}
+      propertyPath: m_Size.z
+      value: 2.6928096
+      objectReference: {fileID: 0}
+    - target: {fileID: 866938334281171778, guid: 77947621883dd00449ae9fee08be518a, type: 3}
+      propertyPath: m_Center.z
+      value: -0.15359515
+      objectReference: {fileID: 0}
     - target: {fileID: 1824118111258117441, guid: 77947621883dd00449ae9fee08be518a, type: 3}
       propertyPath: m_audioClip
       value: 

@@ -1383,7 +1383,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb51fc81d4589e458509dc280550606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _infos: []
+  _infos:
+  - BiomeType: 2
+    MaterialInfos:
+    - Material: {fileID: 2100000, guid: b941861938cf23f42af9fef51ddfa9e6, type: 2}
+      Index: 0
+    - Material: {fileID: 2100000, guid: b941861938cf23f42af9fef51ddfa9e6, type: 2}
+      Index: 1
+  - BiomeType: 1
+    MaterialInfos:
+    - Material: {fileID: 2100000, guid: baad19ee10c55d5468ccb5c4733be7a6, type: 2}
+      Index: 0
+    - Material: {fileID: 2100000, guid: baad19ee10c55d5468ccb5c4733be7a6, type: 2}
+      Index: 1
+  - BiomeType: 0
+    MaterialInfos:
+    - Material: {fileID: 2100000, guid: 4943d175787dd4249bc1fc84ff85daab, type: 2}
+      Index: 0
+    - Material: {fileID: 2100000, guid: 4943d175787dd4249bc1fc84ff85daab, type: 2}
+      Index: 1
   _renderer: {fileID: 411349118756261625}
 --- !u!1 &411349118769922975
 GameObject:

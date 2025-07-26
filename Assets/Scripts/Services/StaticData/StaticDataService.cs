@@ -68,7 +68,6 @@ namespace Assets.Scripts.Services.StaticData
             _muzzleConfigs = await LoadConfigs<MuzzleType, MuzzleConfig>();
             _levelsSequenceConfigs = await LoadConfigs<BiomeType, LevelsSequenceConfig>();
             _playerCharacterConfigs = await LoadConfigs<string, PlayerCharacterConfig>();
-
         }
 
         public LevelsSequenceConfig GetLevelsSequence(BiomeType type)

@@ -2943,8 +2943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e152ab35002743b4194eb7a43398ac16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionParticlePrefab: {fileID: 0}
-  _audioSource: {fileID: -7347569320984822159}
+  _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
+  _source: {fileID: -7347569320984822159}
   _radius: 5
   _force: 200
   _damage: 30

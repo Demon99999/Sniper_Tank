@@ -2368,9 +2368,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3279872298397566188}
+  - component: {fileID: 4856722687955986720}
   - component: {fileID: 3279872298390567374}
   - component: {fileID: 1116381258178894932}
-  - component: {fileID: 4856722687955986720}
   - component: {fileID: 4121392802857801679}
   - component: {fileID: 2788763909213470743}
   - component: {fileID: 1451140625237294114}
@@ -2399,6 +2399,33 @@ Transform:
   - {fileID: 2581248354454608373}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4856722687955986720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279872298397870092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f991315be7aa549a022a1499c4839d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  _animator: {fileID: 3279872298390567374}
+  _armorParts:
+  - {fileID: 6744181282451667413}
+  - {fileID: 7883217189445375666}
+  - {fileID: 4881708333421471317}
+  - {fileID: 8346518269257271851}
+  - {fileID: 133199228866965851}
+  - {fileID: 8836794793842509235}
+  - {fileID: 2036645078933327566}
+  - {fileID: 9097670141745333535}
+  - {fileID: 6421041964114878843}
+  _shootPoint: {fileID: 5410894034052103854}
+  _rotationSpeed: 80
+  _ragdoll: {fileID: 1425630905266676059}
 --- !u!95 &3279872298390567374
 Animator:
   serializedVersion: 5
@@ -2458,33 +2485,6 @@ MonoBehaviour:
   - {fileID: 3279872298397566172}
   - {fileID: 3279872298397566148}
   - {fileID: 3279872298397566152}
---- !u!114 &4856722687955986720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3279872298397870092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f991315be7aa549a022a1499c4839d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 100
-  _animator: {fileID: 3279872298390567374}
-  _armorParts:
-  - {fileID: 6744181282451667413}
-  - {fileID: 7883217189445375666}
-  - {fileID: 4881708333421471317}
-  - {fileID: 8346518269257271851}
-  - {fileID: 133199228866965851}
-  - {fileID: 8836794793842509235}
-  - {fileID: 2036645078933327566}
-  - {fileID: 9097670141745333535}
-  - {fileID: 6421041964114878843}
-  _shootPoint: {fileID: 5410894034052103854}
-  _rotationSpeed: 80
-  _ragdoll: {fileID: 1425630905266676059}
 --- !u!54 &4121392802857801679
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8279,7 +8279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043d248b661166941bf9f76f9b939b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthableBehaviour: {fileID: 1116381258178894932}
+  _healthableBehaviour: {fileID: 4856722687955986720}
   _deltaRemoveDuration: 0.2
   _showDuration: 0
   _canvasGroup: {fileID: 1262626944484553480}
