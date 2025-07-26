@@ -40,6 +40,7 @@ namespace Assets.Scripts.Ui.Game.DefeatWindows
             _restartButton.onClick.RemoveListener(OnRestatrButtonClicked);
             _progressRecoveryButton.onClick.RemoveListener(OnProgressRecoveryButtonClicked);
             _defeatHandler.ProgressRecovered -= OnProgressRecovery;
+            _defeatHandler.OnDestroy();
         }
 
         protected virtual void OnWindowsSwitched()

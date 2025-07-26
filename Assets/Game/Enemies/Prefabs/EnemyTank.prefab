@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _audioSource: {fileID: 6887964861491917469}
+  _source: {fileID: 6887964861491917469}
   _explosionDuration: 1
 --- !u!114 &6855207742824898318
 MonoBehaviour:
@@ -590,7 +590,7 @@ Transform:
   m_GameObject: {fileID: 8132895488928284428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.2329999}
+  m_LocalPosition: {x: 0, y: 0, z: 1.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1032,15 +1032,15 @@ MonoBehaviour:
   - BiomeType: 2
     MaterialInfos:
     - Material: {fileID: 2100000, guid: 4d366e93d4e86454ea6879d0456415f7, type: 2}
-      Index: 0
+      Index: 1
   - BiomeType: 1
     MaterialInfos:
     - Material: {fileID: 2100000, guid: ee10d07641f3ffa4da67902c7f549f8f, type: 2}
-      Index: 0
+      Index: 1
   - BiomeType: 0
     MaterialInfos:
     - Material: {fileID: 2100000, guid: 15caf34f90b885b49b5dd24c8ab94434, type: 2}
-      Index: 0
+      Index: 1
   _renderer: {fileID: 124982103826008955}
 --- !u!1001 &4249577621990428200
 PrefabInstance:
@@ -1192,23 +1192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043d248b661166941bf9f76f9b939b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthableBehaviour: {fileID: 6231557551316300795}
+  _healthableBehaviour: {fileID: 3037199551339997100}
   _deltaRemoveDuration: 0.2
   _showDuration: 1
   _canvasGroup: {fileID: 5113141773169748681}
   _healthFill: {fileID: 7034682336921765982}
   _healthDeltaFill: {fileID: 3556154082162731936}
---- !u!114 &6231557551316300795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7819226175744261587, guid: f8588346ff2955e49bcc382c2bd07e0c, type: 3}
-  m_PrefabInstance: {fileID: 4249577621990428200}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5871949552271700589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7034682336921765982 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6582501257382954614, guid: f8588346ff2955e49bcc382c2bd07e0c, type: 3}

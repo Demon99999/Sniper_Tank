@@ -17,7 +17,7 @@ MonoBehaviour:
   PatrolingEnemyPoints: []
   MovementEngineryPoints:
   - Id: Desert6_37cdd5de-d887-47e2-a99a-83645ff1ecb7
-    StartPosition: {x: -17.5, y: -8.68, z: 35.3}
+    StartPosition: {x: -17.5, y: -8.5, z: 35.3}
     StartRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
     EnemyType: 12
     Path:
@@ -45,7 +45,7 @@ MonoBehaviour:
     - Position: {x: 37.9, y: 0, z: 35.7}
       RotationAngle: 30
       RotationDelta: 5
-    Speed: 0
+    Speed: 2
     IsWaitedAttack: 1
     IsPathLooped: 1
     WaitingTimeOnPoint: 0

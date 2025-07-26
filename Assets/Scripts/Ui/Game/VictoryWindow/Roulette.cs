@@ -6,12 +6,15 @@ using Assets.Scripts.Services.StaticData.ScriptableConfig;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 using Zenject;
 
 namespace Assets.Scripts.Ui.Game.VictoryWindow
 {
     public class Roulette : MonoBehaviour
     {
+        private const int RewardID = 3;
+
         [SerializeField] private Transform _pointer;
         [SerializeField] private float _minRotation;
         [SerializeField] private float _maxRotation;
@@ -33,24 +36,13 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
             _animationsConfig = staticDataService.AnimationsConfig;
 
             _button.onClick.AddListener(OnButtonClicked);
+            YandexGame.RewardVideoEvent += OnRewarded;
         }
 
-        private void OnDestroy() =>
-            _button.onClick.RemoveListener(OnButtonClicked);
-
-        private void OnButtonClicked()
+        private void OnDestroy()
         {
-            _button.interactable = false;
-            _isRotated = false;
-
-#if !UNITY_WEBGL || UNITY_EDITOR
-            Rewarded?.Invoke(_reward);
-#else
-            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-            {
-                Rewarded?.Invoke(_reward);
-            });
-#endif
+            _button.onClick.RemoveListener(OnButtonClicked);
+            YandexGame.RewardVideoEvent -= OnRewarded;
         }
 
         public void Work(uint reward)
@@ -58,6 +50,30 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
             _startReward = reward;
 
             StartCoroutine(Rotater());
+        }
+
+        private void OnButtonClicked()
+        {
+            _button.interactable = false;
+            _isRotated = false;
+            YandexGame.RewVideoShow(RewardID);
+
+//#if !UNITY_WEBGL || UNITY_EDITOR
+//            Rewarded?.Invoke(_reward);
+//#else
+//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
+//            {
+//                Rewarded?.Invoke(_reward);
+//            });
+//#endif
+        }
+
+        private void OnRewarded(int id)
+        {
+            if (id == RewardID)
+            {
+                Rewarded?.Invoke(_reward);
+            }
         }
 
         private uint CalculateReward(float rotationProgress)

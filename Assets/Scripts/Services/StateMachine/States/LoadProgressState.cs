@@ -5,6 +5,7 @@ using Assets.Scripts.Services.PersistentProgressServices;
 using Assets.Scripts.Services.SaveLoadProgressServices;
 using Assets.Scripts.Services.StaticData;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Services.StateMachine.States
 {
@@ -42,7 +43,8 @@ namespace Assets.Scripts.Services.StateMachine.States
 
         private void LoadProgressOrInitNew()
         {
-            _persistentProgressService.Progress = _saveLoadService.LoadProgress() ?? CreateNewProgress();
+            //_persistentProgressService.Progress = _saveLoadService.LoadProgress() ?? CreateNewProgress();
+            _persistentProgressService.Progress = CreateNewProgress();
         }
 
         private PlayerProgress CreateNewProgress()
@@ -52,7 +54,7 @@ namespace Assets.Scripts.Services.StateMachine.States
             TankData[] tankDatas = _staticDataService.TankConfigs.Select(config => new TankData(config.Level, config.IsUnlockOnStart, startDecal)).ToArray();
             TankSkinData[] tankSkinDatas = _staticDataService.TankSkinConfigs.Select(config => new TankSkinData(config.Id)).ToArray();
             CharacterData[] characterSkinDatas = _staticDataService.PlayerCharacterCofigs.Select(config => new CharacterData(config.Id, config.IsUnlockedOnStart)).ToArray();
-
+            Debug.Log(characterSkinDatas.Length);
             PlayerProgress progress = new PlayerProgress(tankDatas, tankSkinDatas, decalDatas, 0, characterSkinDatas, _staticDataService.MainMenuSettingsConfig.StartPrice);
 
             return progress;

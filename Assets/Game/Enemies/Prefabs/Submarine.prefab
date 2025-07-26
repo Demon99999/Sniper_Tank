@@ -2518,7 +2518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _audioSource: {fileID: 5039405545608740679}
+  _source: {fileID: 5039405545608740679}
   _explosionDuration: 2
 --- !u!82 &5039405545608740679
 AudioSource:
@@ -2787,7 +2787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _audioSource: {fileID: 613469473666786666}
+  _source: {fileID: 613469473666786666}
   _explosionDuration: 2
 --- !u!82 &613469473666786666
 AudioSource:
@@ -5486,7 +5486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPositionY: -3.1
-  _speed: 30
+  _speed: 100
   _rigidbody: {fileID: 4873931195069793550}
   _parts:
   - {fileID: 7494909144991278094}
@@ -5566,7 +5566,7 @@ MonoBehaviour:
   - {fileID: 6468438593536242302}
   - {fileID: 7685696161735528633}
   - {fileID: 1156318364630282517}
-  _submarine: {fileID: 4873931195069793550}
+  _submarine: {fileID: 6955098687376217702}
 --- !u!54 &4873931195069793550
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8312,7 +8312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _audioSource: {fileID: 5991953751169769812}
+  _source: {fileID: 5991953751169769812}
   _explosionDuration: 2
 --- !u!82 &5991953751169769812
 AudioSource:

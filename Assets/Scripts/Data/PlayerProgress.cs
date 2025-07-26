@@ -152,7 +152,14 @@ namespace Assets.Scripts.Data
         public void SelectCharacterSkin(string id)
         {
             SelectedPlayerCharacterId = id;
-            CharacterSkinChanged?.Invoke(id);
+
+            CharacterData skinData = GetPlayerCharacter(id);
+
+            if (skinData.IsUnlocked == false)
+            {
+                CharacterSkinChanged?.Invoke(id);
+            }
+            //CharacterSkinChanged?.Invoke(id);
         }
     }
 }

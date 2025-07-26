@@ -128,11 +128,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4018661459004493714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada787fe82e4fc54d93bff5e720775dc, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb915af856bd4c4786e7597c66f56fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f,
-    type: 3}
+  _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
+  _source: {fileID: 6330442025285807939}
   _explosionDuration: 1
   _barrel: {fileID: 2814273826170809152}
   _audioSource: {fileID: 6330442025285807939}
@@ -166,8 +166,7 @@ AudioSource:
   m_GameObject: {fileID: 4018661459004493714}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -5844739401592513887, guid: 27a7e8258ea045b408a494045b2e87b4,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: -5844739401592513887, guid: 27a7e8258ea045b408a494045b2e87b4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 37c2d708f15507f4b892abd750abcba2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

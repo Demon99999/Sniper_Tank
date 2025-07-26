@@ -525,10 +525,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7269357703615548100}
+  - component: {fileID: 1805171409930850446}
   - component: {fileID: 5298597580252650578}
   - component: {fileID: 3471639150113586106}
   - component: {fileID: 5924300773723010989}
-  - component: {fileID: 1805171409930850446}
   - component: {fileID: 8840643775221683411}
   - component: {fileID: 8083058389476207978}
   - component: {fileID: 7517026190145132412}
@@ -556,6 +556,34 @@ Transform:
   - {fileID: 1619945787726062033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1805171409930850446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545839258697223484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1359f5914bfa1d345b76c78e0cf0b24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _helicopterPart: {fileID: 6865833680857783120}
+  _explosion: {fileID: 5298597580252650578}
+  _destructionParts:
+  - {fileID: 6376950468723691722}
+  - {fileID: 3065169885896591051}
+  - {fileID: 5883921292917990494}
+  - {fileID: 7778597918845999422}
+  - {fileID: 2653836126438073752}
+  - {fileID: 4106540772440783383}
+  - {fileID: 8216216402714705370}
+  _destructionMaterialsRenderer: {fileID: 5924300773723010989}
+  _firePartilcePosition: {x: 0, y: 2.1, z: 0}
+  _firePargiclePrefab: {fileID: 167718, guid: ef184c5ce02b68d4188ce99b4b612bc2, type: 3}
+  _rototAudioSource: {fileID: 8083058389476207978}
+  _health: 40
+  _weaponParts: []
 --- !u!114 &5298597580252650578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _audioSource: {fileID: 8083058389476207978}
+  _source: {fileID: 8083058389476207978}
   _explosionDuration: 1
 --- !u!54 &3471639150113586106
 Rigidbody:
@@ -618,34 +646,6 @@ MonoBehaviour:
   - {fileID: 1885045439244081076}
   - {fileID: 1452591330577694705}
   - {fileID: 3843522312559888762}
---- !u!114 &1805171409930850446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3545839258697223484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1359f5914bfa1d345b76c78e0cf0b24e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _helicopterPart: {fileID: 6865833680857783120}
-  _explosion: {fileID: 5298597580252650578}
-  _destructionParts:
-  - {fileID: 6376950468723691722}
-  - {fileID: 3065169885896591051}
-  - {fileID: 5883921292917990494}
-  - {fileID: 7778597918845999422}
-  - {fileID: 2653836126438073752}
-  - {fileID: 4106540772440783383}
-  - {fileID: 8216216402714705370}
-  _destructionMaterialsRenderer: {fileID: 5924300773723010989}
-  _firePartilcePosition: {x: 0, y: 2.1, z: 0}
-  _firePargiclePrefab: {fileID: 167718, guid: ef184c5ce02b68d4188ce99b4b612bc2, type: 3}
-  _rototAudioSource: {fileID: 8083058389476207978}
-  _health: 40
-  _weaponParts: []
 --- !u!114 &8840643775221683411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,10 +659,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3471639150113586106}
-  _helicopter: {fileID: 7269357703615548100}
-  _movingForce: 2
-  _tiltForce: 15
-  _turnTiltForce: 15
+  _helicopter: {fileID: 5839955110556970388}
+  _movingForce: 5
+  _tiltForce: 20
+  _turnTiltForce: 20
   _effectiveHeight: 30
   _rotationSpeed: 60
   _enemy: {fileID: 1805171409930850446}
@@ -2340,7 +2340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043d248b661166941bf9f76f9b939b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthableBehaviour: {fileID: 5298597580252650578}
+  _healthableBehaviour: {fileID: 1805171409930850446}
   _deltaRemoveDuration: 0.2
   _showDuration: 0
   _canvasGroup: {fileID: 2606628895764499244}

@@ -1,4 +1,6 @@
 ﻿using System;
+using Assets.Scripts.GamePlay.Enemis;
+using Assets.Scripts.GamePlay.Enemis.Movement;
 using Assets.Scripts.GamePlay.Enemis.Points;
 using Assets.Scripts.Infrastructure.Factoris.GamePlayFactory;
 using Assets.Sources.Services.StaticDataService.Configs;
@@ -18,15 +20,15 @@ namespace Assets.Scripts.Services.StaticData.ScriptableConfig.Level
         {
         }
 
-        //public override async UniTask<Enemy> Create(IGameplayFactory gameplayFactory)
-        //{
-        //    Enemy enemy = await base.Create(gameplayFactory);
+        public override async UniTask<Enemy> Create(IGameplayFactory gameplayFactory)
+        {
+            Enemy enemy = await base.Create(gameplayFactory);
 
-        //    EnemyPatroling enemyPatroling = enemy.gameObject.AddComponent<EnemyPatroling>();
-        //    enemyPatroling.Initialize(Path, Speed, MaxRotationAngle);
-        //    enemyPatroling.Initialize(StoppingDuration);
+            EnemyPatroling enemyPatroling = enemy.gameObject.AddComponent<EnemyPatroling>();
+            enemyPatroling.Initialize(Path, Speed, MaxRotationAngle);
+            enemyPatroling.Initialize(StoppingDuration);
 
-        //    return enemy;
-        //}
+            return enemy;
+        }
     }
 }

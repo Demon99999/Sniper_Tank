@@ -2,11 +2,14 @@
 using Assets.Scripts.Services.CoroutineRunnerServices;
 using Assets.Scripts.Services.InputService;
 using Assets.Scripts.Services.StaticData;
+using YG;
 
 namespace Assets.Scripts.GamePlay.Handlers
 {
     public class DefeatHandler : GameplayHandler
     {
+        private const int RewardID = 2;
+
         private readonly IInputService _inputService;
 
         public DefeatHandler(ICoroutineRunner coroutineRunner, IStaticDataService staticDataService,
@@ -14,6 +17,12 @@ namespace Assets.Scripts.GamePlay.Handlers
             : base(coroutineRunner, staticDataService)
         {
             _inputService = inputService;
+            YandexGame.RewardVideoEvent += OnRewarded;
+        }
+
+        public void OnDestroy()
+        {
+            YandexGame.RewardVideoEvent -= OnRewarded;
         }
 
         public event Action Defeated;
@@ -22,16 +31,18 @@ namespace Assets.Scripts.GamePlay.Handlers
 
         public void TryRecoveryProgress()
         {
-#if !UNITY_WEBGL || UNITY_EDITOR
-            _inputService.SetActive(true);
-            ProgressRecovered?.Invoke();
-#else
-            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-            {
-                _inputService.SetActive(true);
-                ProgressRecovered?.Invoke();
-            });
-#endif
+            YandexGame.RewVideoShow(RewardID);
+
+//#if !UNITY_WEBGL || UNITY_EDITOR
+//            _inputService.SetActive(true);
+//            ProgressRecovered?.Invoke();
+//#else
+//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
+//            {
+//                _inputService.SetActive(true);
+//                ProgressRecovered?.Invoke();
+//            });
+//#endif
         }
 
         public void OnDefeat()
@@ -40,5 +51,15 @@ namespace Assets.Scripts.GamePlay.Handlers
             _inputService.SetActive(false);
             StartTimer(callback: () => WindowsSwitched?.Invoke());
         }
+
+        private void OnRewarded(int id)
+        {
+            if (id == RewardID)
+            {
+                _inputService.SetActive(true);
+                ProgressRecovered?.Invoke();
+            }
+        }
+
     }
 }

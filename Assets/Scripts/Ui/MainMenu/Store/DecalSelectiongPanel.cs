@@ -7,6 +7,7 @@ using Assets.Scripts.Services.PersistentProgressServices;
 using Assets.Scripts.Services.StaticData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using YG;
 using Zenject;
 
 namespace Assets.Scripts.Ui.MainMenu.Store
@@ -14,6 +15,7 @@ namespace Assets.Scripts.Ui.MainMenu.Store
     public class DecalSelectiongPanel : SelectionPanel<string>
     {
         private const string Texture = "_Texture";
+        private const int RewardID = 4;
 
         [SerializeField] private int _tankRotationAngle;
         [SerializeField] private UiSelectedTankPoint _tankPoint;
@@ -26,6 +28,14 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         {
             _staticDataService = staticDataService;
             _assetProvider = assetProvider;
+
+            YandexGame.RewardVideoEvent += OnRewarded;
+        }
+
+
+        private void OnDestroy()
+        {
+            YandexGame.RewardVideoEvent -= OnRewarded;
         }
 
         public override void Open()
@@ -75,14 +85,17 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
             if (decalData.IsUnlocked == false)
             {
-#if !UNITY_WEBGL || UNITY_EDITOR
+                YandexGame.RewVideoShow(RewardID);
                 persistentProgressService.Progress.UnlockDecal(key);
-#else
-            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-            {
-                persistentProgressService.Progress.UnlockDecal(key);
-            });
-#endif
+
+//#if !UNITY_WEBGL || UNITY_EDITOR
+//                persistentProgressService.Progress.UnlockDecal(key);
+//#else
+//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
+//            {
+//                persistentProgressService.Progress.UnlockDecal(key);
+//            });
+//#endif
             }
             else
             {
@@ -92,13 +105,27 @@ namespace Assets.Scripts.Ui.MainMenu.Store
             ActiveSelectionFrame(key);
         }
 
-        protected override void Subscribe(IPersistentProgressService persistentProgressService) =>
+        protected override void Subscribe(IPersistentProgressService persistentProgressService)
+        {
             persistentProgressService.Progress.DecalUnlocked += Unlock;
+        }
 
-        protected override void Unsubscribe(IPersistentProgressService persistentProgressService) =>
+        protected override void Unsubscribe(IPersistentProgressService persistentProgressService)
+        {
             persistentProgressService.Progress.DecalUnlocked -= Unlock;
+        }
 
-        protected override string GetCurrentSelectedPanel(IPersistentProgressService persistentProgressService) =>
-            persistentProgressService.Progress.GetSelectedTank().DecalId;
+        protected override string GetCurrentSelectedPanel(IPersistentProgressService persistentProgressService)
+        {
+            return persistentProgressService.Progress.GetSelectedTank().DecalId;
+        }
+
+        private void OnRewarded(int id)
+        {
+            if (id == RewardID)
+            {
+                
+            }
+        }
     }
 }
