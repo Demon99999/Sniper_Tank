@@ -108,19 +108,6 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
         private void OnCollectButtonClicked()
         {
             YandexGame.RewVideoShow(RewardID);
-
-//#if !UNITY_WEBGL || UNITY_EDITOR
-//            _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsBuyed = true;
-
-//            Hide();
-//#else
-//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-//            {
-//                _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsBuyed = true;
-
-//                Hide();
-//            });
-//#endif
         }
 
         private IEnumerator Rotater()

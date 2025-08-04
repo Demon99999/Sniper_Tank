@@ -94,7 +94,22 @@ MonoBehaviour:
     - Position: {x: 51.43, y: 13.8, z: 51.81}
       RotationAngle: 0
       RotationDelta: 5
-    Speed: 8
+    Speed: 12
     IsWaitedAttack: 1
     IsPathLooped: 0
+    WaitingTimeOnPoint: 0
+  - Id: 11
+    StartPosition: {x: 5.36, y: 12, z: 34}
+    StartRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+    EnemyType: 13
+    Path:
+    - Position: {x: 11.2, y: 12, z: 31.14}
+      RotationAngle: 5
+      RotationDelta: 64.36
+    - Position: {x: 5.5, y: 12, z: 31.14}
+      RotationAngle: 5
+      RotationDelta: 59.08
+    Speed: 10
+    IsWaitedAttack: 1
+    IsPathLooped: 1
     WaitingTimeOnPoint: 0

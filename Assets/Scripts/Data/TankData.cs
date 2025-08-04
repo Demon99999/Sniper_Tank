@@ -9,6 +9,7 @@ namespace Assets.Scripts.Data
         public bool IsUnlocked;
         public string SkinId;
         public string DecalId;
+        public bool IsFirstAppearance;
 
         public TankData(uint level, bool isUnlocked, string decalId)
         {
@@ -17,6 +18,7 @@ namespace Assets.Scripts.Data
             DecalId = decalId;
 
             SkinId = string.Empty;
+            IsFirstAppearance = true;
         }
     }
 }

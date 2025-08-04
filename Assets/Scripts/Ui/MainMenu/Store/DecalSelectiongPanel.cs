@@ -28,14 +28,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         {
             _staticDataService = staticDataService;
             _assetProvider = assetProvider;
-
-            YandexGame.RewardVideoEvent += OnRewarded;
-        }
-
-
-        private void OnDestroy()
-        {
-            YandexGame.RewardVideoEvent -= OnRewarded;
         }
 
         public override void Open()
@@ -85,17 +77,8 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
             if (decalData.IsUnlocked == false)
             {
-                YandexGame.RewVideoShow(RewardID);
+                //YandexGame.RewVideoShow(RewardID);
                 persistentProgressService.Progress.UnlockDecal(key);
-
-//#if !UNITY_WEBGL || UNITY_EDITOR
-//                persistentProgressService.Progress.UnlockDecal(key);
-//#else
-//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-//            {
-//                persistentProgressService.Progress.UnlockDecal(key);
-//            });
-//#endif
             }
             else
             {
@@ -118,14 +101,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         protected override string GetCurrentSelectedPanel(IPersistentProgressService persistentProgressService)
         {
             return persistentProgressService.Progress.GetSelectedTank().DecalId;
-        }
-
-        private void OnRewarded(int id)
-        {
-            if (id == RewardID)
-            {
-                
-            }
         }
     }
 }

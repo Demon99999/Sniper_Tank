@@ -12,5 +12,6 @@ namespace Assets.Scripts.Services.StaticData.ScriptableConfig
         public Vector2 StartRotation;
         public Vector2 MaxRotation;
         public Vector2 MinRotation;
+        public Vector2 DroneStartRotation;
     }
 }

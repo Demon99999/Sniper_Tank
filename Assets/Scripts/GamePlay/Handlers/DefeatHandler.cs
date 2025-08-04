@@ -32,17 +32,6 @@ namespace Assets.Scripts.GamePlay.Handlers
         public void TryRecoveryProgress()
         {
             YandexGame.RewVideoShow(RewardID);
-
-//#if !UNITY_WEBGL || UNITY_EDITOR
-//            _inputService.SetActive(true);
-//            ProgressRecovered?.Invoke();
-//#else
-//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-//            {
-//                _inputService.SetActive(true);
-//                ProgressRecovered?.Invoke();
-//            });
-//#endif
         }
 
         public void OnDefeat()

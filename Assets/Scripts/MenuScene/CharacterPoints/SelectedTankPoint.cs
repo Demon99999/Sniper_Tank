@@ -52,7 +52,9 @@ namespace Assets.Scripts.MenuScene.CharacterPoints
             SelectedTank = await CreateTank(tankData, _tankPoint.position, GetRotation(), GetParent(), TankFactory);
 
             if (needToAnimate)
+            {
                 _scalingAnimator.Play();
+            }
         }
 
         protected abstract UniTask<GameObject> CreateTank(

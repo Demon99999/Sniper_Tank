@@ -18,10 +18,6 @@ MonoBehaviour:
     StartPosition: {x: -3.62, y: 6.3, z: 41.45}
     StartRotation: {x: 0, y: 0.9848078, z: 0, w: 0.17364825}
     EnemyType: 7
-  - Id: WinterGameplayScene2_4cd37c9a-6578-4473-bc92-6e7621b137d0
-    StartPosition: {x: 31.26, y: 14.5, z: 60.17}
-    StartRotation: {x: 0, y: 0.9848078, z: 0, w: -0.17364809}
-    EnemyType: 7
   - Id: Forest1_5bc41b4b-225b-4993-a90f-b8bda64118ec
     StartPosition: {x: 12.09, y: 6.3, z: 29.449}
     StartRotation: {x: 0, y: 1, z: 0, w: 0}
@@ -77,4 +73,22 @@ MonoBehaviour:
     WaitingTimeOnPoint: 0
     MaxRotationAngle: 75
     SpeedAfterAttack: 2
-  HelicopterPoints: []
+  HelicopterPoints:
+  - Id: 
+    StartPosition: {x: -8.96, y: 9.1, z: 22.89}
+    StartRotation: {x: 0, y: 0, z: 0, w: 0}
+    EnemyType: 13
+    Path:
+    - Position: {x: -8.96, y: 9.1, z: 22.89}
+      RotationAngle: 1
+      RotationDelta: 3
+    - Position: {x: -7.16, y: 8.47, z: 21.7}
+      RotationAngle: 1
+      RotationDelta: 3
+    - Position: {x: 7.61, y: 8.11, z: 21.7}
+      RotationAngle: 1
+      RotationDelta: 3
+    Speed: 8
+    IsWaitedAttack: 1
+    IsPathLooped: 1
+    WaitingTimeOnPoint: 0

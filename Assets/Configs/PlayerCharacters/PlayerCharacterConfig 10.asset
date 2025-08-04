@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a1490f90169b5478c77b164525e6a1, type: 3}
+  m_Name: PlayerCharacterConfig 10
+  m_EditorClassIdentifier: 
+  Id: PlayerCharacter10
+  IsUnlockedOnStart: 1
+  AssetReference:
+    m_AssetGUID: 6c7f08bb61d2b8748bac6ec8af1c5ddd
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  Icon:
+    m_AssetGUID: 9a0243613b25cef4793682816eaa33a4
+    m_SubObjectName: CharacterIcon10
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1

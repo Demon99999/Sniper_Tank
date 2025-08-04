@@ -6,7 +6,7 @@ namespace Assets.Scripts.GamePlay
 {
     public abstract class HandleableRotationObject : MonoBehaviour
     {
-        [SerializeField] private float _sensivity = 0.5f;
+        [SerializeField] private float _sensivity = 0.1f;
 
         private IRotationAiming _rotationAiming;
 
@@ -47,7 +47,7 @@ namespace Assets.Scripts.GamePlay
 
         protected abstract Vector2 ClampRotation(Vector2 rotation);
 
-        protected void Rotate()
+        protected virtual void Rotate()
         {
             transform.rotation = Quaternion.Euler(Rotation.x, Rotation.y, 0);
         }

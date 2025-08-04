@@ -15,5 +15,6 @@
         Boot,
         BossHelicopter,
         Submarine,
+        DronEnemy,
     }
 }

@@ -31,11 +31,18 @@ namespace Assets.Scripts.GamePlay.Bullets
 
         private async void CreateLaser(int targetsCount)
         {
+            if (!Launch())
+                return;
+
             if (Launch())
             {
                 IReadOnlyList<Enemy> enemies = _victoryHandler.Enemies;
 
-                enemies = enemies.Where(enemy => enemy.IsDestructed == false).OrderBy(enemy => Vector3.Distance(HitInfo.point, enemy.transform.position)).Take(targetsCount).ToArray();
+                enemies = enemies
+                    .Where(enemy => !enemy.IsDestructed)
+                    .OrderBy(enemy => Vector3.Distance(HitInfo.point, enemy.transform.position))
+                    .Take(targetsCount)
+                    .ToArray();
 
                 if (enemies.Count == 0)
                     return;
@@ -43,12 +50,22 @@ namespace Assets.Scripts.GamePlay.Bullets
                 Vector3 fitsPoint = HitInfo.point;
 
                 if (HitInfo.transform.TryGetComponent(out Enemy _))
+                {
                     enemies = enemies.Skip(1).ToArray();
+                    if (enemies.Count == 0) // Проверяем, не стал ли массив пустым
+                        return;
+                }
 
                 await _bulletFactory.CreateTargetingLaser(fitsPoint, enemies[0].transform.position + _offset);
 
+                // Последующие сегменты (между врагами)
                 for (int i = 0; i < enemies.Count - 1; i++)
-                    await _bulletFactory.CreateTargetingLaser(enemies[i].transform.position + _offset, enemies[i + 1].transform.position + _offset);
+                {
+                    await _bulletFactory.CreateTargetingLaser(
+                        enemies[i].transform.position + _offset,
+                        enemies[i + 1].transform.position + _offset
+                    );
+                }
             }
         }
     }
