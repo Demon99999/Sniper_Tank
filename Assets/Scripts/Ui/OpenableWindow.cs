@@ -7,8 +7,8 @@ namespace Assets.Scripts.Ui
     {
         [SerializeField] private CanvasGroup _mainCanvasGroup;
         [SerializeField] private float _closeDuration;
-        [SerializeField] protected float _openDuration;
         [SerializeField] private bool _isOpenedOnAwake;
+        [SerializeField] protected float OpenDuration;
 
         private Coroutine _swithcer;
 
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Ui
             _mainCanvasGroup.blocksRaycasts = true;
             _mainCanvasGroup.interactable = true;
 
-            Switch(1, _openDuration);
+            Switch(1, OpenDuration);
         }
 
         public virtual void Hide()

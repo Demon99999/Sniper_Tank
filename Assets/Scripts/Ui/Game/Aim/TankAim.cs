@@ -22,6 +22,8 @@ namespace Assets.Scripts.Ui.Game.Aim
         private List<SuperBulletIcon> _icons;
         private Coroutine _superAimMover;
 
+        private float _rotationZ = 100f;
+
         [Inject]
         private async void Construct(PlayerTankWeapon playerTankWeapon, IUiFactory uiFactory)
         {
@@ -50,12 +52,15 @@ namespace Assets.Scripts.Ui.Game.Aim
             foreach (SuperBulletIcon icon in _icons)
                 icon.SetAcive(false);
 
-            IEnumerable<SuperBulletIcon> activeIcons = _icons.Take((int)(_playerTankWeapon.RequireShotsNumberToSuperShot - _playerTankWeapon.ShootsNumberToSuperShot));
+            IEnumerable<SuperBulletIcon> activeIcons = _icons.
+                Take((int)(_playerTankWeapon.
+                RequireShotsNumberToSuperShot - _playerTankWeapon.ShootsNumberToSuperShot));
 
             foreach (SuperBulletIcon icon in activeIcons)
                 icon.SetAcive(true);
 
-            if (_playerTankWeapon.RequireShotsNumberToSuperShot == _playerTankWeapon.RequireShotsNumberToSuperShot - _playerTankWeapon.ShootsNumberToSuperShot)
+            if (_playerTankWeapon.RequireShotsNumberToSuperShot == _playerTankWeapon.RequireShotsNumberToSuperShot
+                - _playerTankWeapon.ShootsNumberToSuperShot)
             {
                 _superAimCanvasGroup.alpha = 1;
                 _superAimMover = StartCoroutine(SuperAimMover());
@@ -73,7 +78,8 @@ namespace Assets.Scripts.Ui.Game.Aim
 
             while (isMoved)
             {
-                _superAim.transform.rotation = Quaternion.RotateTowards(_superAim.transform.rotation, _superAim.transform.rotation * Quaternion.Euler(0, 0, 100), _superAimMoveSpeed * Time.deltaTime);
+                _superAim.transform.rotation = Quaternion.RotateTowards(_superAim.transform.rotation,
+                    _superAim.transform.rotation * Quaternion.Euler(0, 0, _rotationZ), _superAimMoveSpeed * Time.deltaTime);
 
                 yield return null;
             }

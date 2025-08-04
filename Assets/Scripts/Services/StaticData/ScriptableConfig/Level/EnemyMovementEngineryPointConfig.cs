@@ -15,7 +15,8 @@ namespace Assets.Scripts.Services.StaticData.ScriptableConfig.Level
         public uint MaxRotationAngle;
         public float SpeedAfterAttack;
 
-        public EnemyMovementEngineryPointConfig(string id, Vector3 startPosition, Quaternion startRotation, EnemyType enemyType, EnemyPathPoint[] path)
+        public EnemyMovementEngineryPointConfig(string id, Vector3 startPosition,
+            Quaternion startRotation, EnemyType enemyType, EnemyPathPoint[] path)
             : base(id, startPosition, startRotation, enemyType, path)
         {
         }

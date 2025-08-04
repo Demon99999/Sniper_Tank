@@ -20,14 +20,17 @@ namespace Assets.Scripts.MenuScene
         {
             tankLevel = _persistentProgressService.Progress.TankBuyingData.CurrentSpawnLevel;
 
-            if (_persistentProgressService.Progress.Wallet.TryTake(_persistentProgressService.Progress.TankBuyingData.CurrentCost))
+            if (_persistentProgressService.Progress.Wallet
+                .TryTake(_persistentProgressService.Progress.TankBuyingData.CurrentCost))
             {
                 _persistentProgressService.Progress.TankBuyingData.UpdateInfo();
 
-                if (_persistentProgressService.Progress.TankBuyingData.RequiredForPriceUpdateBuyingCount > _mainMenuSettingsConfig.RequiredTanksNumberToPriceUpdate)
+                if (_persistentProgressService.Progress.TankBuyingData.RequiredForPriceUpdateBuyingCount
+                    > _mainMenuSettingsConfig.RequiredTanksNumberToPriceUpdate)
                     _persistentProgressService.Progress.TankBuyingData.UpdatePrice(_mainMenuSettingsConfig.PriceIncrease);
 
-                if (_persistentProgressService.Progress.TankBuyingData.RequiredForSpawnUpdateBuyingCount >= _mainMenuSettingsConfig.RequiredTanksNumberToSpawnUpdate)
+                if (_persistentProgressService.Progress.TankBuyingData.RequiredForSpawnUpdateBuyingCount
+                    >= _mainMenuSettingsConfig.RequiredTanksNumberToSpawnUpdate)
                 {
                     uint currentSpawnLevel = _persistentProgressService.Progress.TankBuyingData.CurrentSpawnLevel;
                     float count = 1;
@@ -35,7 +38,9 @@ namespace Assets.Scripts.MenuScene
 
                     for (uint i = currentSpawnLevel; i >= 1; i--)
                     {
-                        count += (float)_persistentProgressService.Progress.DeskData.Cells.Count(celldata => celldata.TankLevel == i) / divider;
+                        count += (float)_persistentProgressService.Progress.DeskData.Cells
+                            .Count(celldata => celldata.TankLevel == i) / divider;
+
                         divider *= 2;
                     }
 

@@ -64,17 +64,24 @@ namespace Assets.Scripts.GamePlay.Enemis.Movement
 
             while (_isMoved)
             {
-                PathPointConfig targetPoint = _currentPointIndex < _path.Length - 1 ? _path[_currentPointIndex + 1] : _path[0];
-                float rotationAngle = _path[_currentPointIndex].RotationAngle == 0 ? _maxRotationAngle : Mathf.Clamp(_path[_currentPointIndex].RotationAngle, 0, _maxRotationAngle);
+                PathPointConfig targetPoint = _currentPointIndex < _path.Length - 1 ? 
+                    _path[_currentPointIndex + 1] : _path[0];
+
+                float rotationAngle = _path[_currentPointIndex].RotationAngle == 0 ? _maxRotationAngle : Mathf
+                    .Clamp(_path[_currentPointIndex].RotationAngle, 0, _maxRotationAngle);
 
                 NextPointStarted?.Invoke();
 
                 while (Vector3.Distance(transform.position, targetPoint.Position) > targetPoint.RotationDelta)
                 {
-                    Vector3 currentPosition = new Vector3(transform.position.x, targetPoint.Position.y, transform.position.z);
-                    Quaternion targetRotation = Quaternion.LookRotation((targetPoint.Position - currentPosition).normalized);
+                    Vector3 currentPosition = new Vector3(transform.position.x, targetPoint.Position.y,
+                        transform.position.z);
 
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationAngle * Time.deltaTime);
+                    Quaternion targetRotation = Quaternion.LookRotation((targetPoint.Position
+                        - currentPosition).normalized);
+
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation,
+                        rotationAngle * Time.deltaTime);
 
                     _rigidbody.velocity = transform.forward * Speed;
 

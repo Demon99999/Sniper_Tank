@@ -13,7 +13,7 @@ namespace Assets.Scripts.GamePlay.Destructions.Building
         private void Start() =>
             Collect();
 
-        public void Collect()
+        private void Collect()
         {
             foreach (var cell in _destructionCells)
                 cell.Clear();
@@ -28,8 +28,7 @@ namespace Assets.Scripts.GamePlay.Destructions.Building
                 for (int i = 0; i < conectionsCound; i++)
                 {
                     DestructionCell foundationConnectedCell = cells
-                        .Where(value => value.Contains(cell) == false && value.IsConnectedToFondation(new List<DestructionCell>()))
-                        .FirstOrDefault();
+                        .FirstOrDefault(value => value.Contains(cell) == false && value.IsConnectedToFondation(new List<DestructionCell>()));
 
                     if (foundationConnectedCell != null)
                     {

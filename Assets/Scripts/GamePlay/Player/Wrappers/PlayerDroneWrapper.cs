@@ -162,9 +162,13 @@ namespace Assets.Scripts.GamePlay.Player.Wrappers
         {
             while (_isDronAimed)
             {
-                Vector3 targetDiretion = new Vector3(_rotationCamera.transform.forward.x, 0, _rotationCamera.transform.forward.z);
+                Vector3 targetDiretion = new Vector3(_rotationCamera.transform.forward.x, 0,
+                    _rotationCamera.transform.forward.z);
+
                 Quaternion targetRotation = Quaternion.LookRotation(targetDiretion);
-                _drone.transform.rotation = Quaternion.RotateTowards(_drone.transform.rotation, targetRotation, _dronRotationSpeed * Time.deltaTime);
+
+                _drone.transform.rotation = Quaternion.RotateTowards(_drone.transform.rotation, targetRotation,
+                    _dronRotationSpeed * Time.deltaTime);
 
                 yield return null;
             }
@@ -174,7 +178,8 @@ namespace Assets.Scripts.GamePlay.Player.Wrappers
         {
             while (_isDronAimed)
             {
-                Vector3 targetPosition = Random.insideUnitSphere * _animationsConfig.DroneAnimationRadius + _aimingCameraPoint.transform.position + _droneOffset;
+                Vector3 targetPosition = Random.insideUnitSphere * _animationsConfig.DroneAnimationRadius
+                    + _aimingCameraPoint.transform.position + _droneOffset;
 
                 while (Vector3.Distance(_drone.transform.position, targetPosition) > 0.1f && _isDronAimed)
                 {

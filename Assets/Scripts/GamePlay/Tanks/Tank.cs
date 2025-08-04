@@ -27,11 +27,6 @@ namespace Assets.Scripts.GamePlay.Tanks
             Level = level;
         }
 
-        public void Destroy()
-        {
-            Destroy(gameObject);
-        }
-
         public class Factory : PlaceholderFactory<AssetReferenceGameObject, Vector3, Quaternion, Transform, UniTask<Tank>>
         {
         }

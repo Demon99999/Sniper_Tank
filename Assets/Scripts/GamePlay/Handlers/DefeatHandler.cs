@@ -10,7 +10,7 @@ namespace Assets.Scripts.GamePlay.Handlers
     {
         private const int RewardID = 2;
 
-        private readonly IInputService _inputService;
+        private IInputService _inputService;
 
         public DefeatHandler(ICoroutineRunner coroutineRunner, IStaticDataService staticDataService,
             IInputService inputService)
@@ -20,14 +20,14 @@ namespace Assets.Scripts.GamePlay.Handlers
             YandexGame.RewardVideoEvent += OnRewarded;
         }
 
+        public event Action Defeated;
+        public event Action WindowsSwitched;
+        public event Action ProgressRecovered;
+
         public void OnDestroy()
         {
             YandexGame.RewardVideoEvent -= OnRewarded;
         }
-
-        public event Action Defeated;
-        public event Action WindowsSwitched;
-        public event Action ProgressRecovered;
 
         public void TryRecoveryProgress()
         {
@@ -49,6 +49,5 @@ namespace Assets.Scripts.GamePlay.Handlers
                 ProgressRecovered?.Invoke();
             }
         }
-
     }
 }

@@ -9,7 +9,6 @@ namespace Assets.Scripts.GamePlay.Enemis
 {
     public class EnemySubmarine : Enemy, IDamageable, IHealthable
     {
-
         private const float PossitionDelta = 0.3f;
         private const float DestructionDelta = 3;
         private const float ExplosionDuration = 0.2f;
@@ -59,7 +58,9 @@ namespace Assets.Scripts.GamePlay.Enemis
 
                 if (Vector3.Distance(part.transform.position, explosionInfo.ExplosionPosition) < DestructionDelta
                     && part.IsDesturcted == false)
+                {
                     part.Destruct(explosionInfo.ExplosionPosition, explosionInfo.ExplosionForce);
+                }
             }
 
             TakeDamage(explosionInfo.Damage);

@@ -8,8 +8,6 @@ namespace Assets.Scripts.GamePlay.Camera
     {
         [SerializeField] private UnityEngine.Camera _uiCamera;
 
-        public UnityEngine.Camera Camera => _uiCamera;
-
         public class Factory : PlaceholderFactory<string, UniTask<UiCamera>>
         {
         }

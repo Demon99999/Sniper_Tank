@@ -11,7 +11,9 @@ namespace Assets.Scripts.MenuScene
         private void Start()
         {
             _startRotation = transform.rotation;
-            _shootingRotation = _startRotation * Quaternion.AngleAxis(AnimationsConfig.TankShootingRotationAngle, -Vector3.right);
+
+            _shootingRotation = _startRotation * Quaternion.AngleAxis(AnimationsConfig.TankShootingRotationAngle,
+                -Vector3.right);
         }
 
         protected override IEnumerator Animator()
@@ -24,7 +26,8 @@ namespace Assets.Scripts.MenuScene
                 passedTime += Time.deltaTime;
                 progress = passedTime / AnimationsConfig.TankShootingDuration;
 
-                transform.rotation = Quaternion.Lerp(_startRotation, _shootingRotation, AnimationsConfig.TankShootingAnimationCurve.Evaluate(progress));
+                transform.rotation = Quaternion.Lerp(_startRotation,
+                    _shootingRotation, AnimationsConfig.TankShootingAnimationCurve.Evaluate(progress));
 
                 yield return null;
             }

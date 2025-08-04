@@ -63,7 +63,9 @@ namespace Assets.Scripts.GamePlay.Enemis.Robot
             {
                 if (Vector3.Distance(armorPart.transform.position, explosionInfo.ExplosionPosition) <= Delta
                     && armorPart.IsDestructed == false)
+                {
                     armorPart.Destruct(explosionInfo.ExplosionPosition, explosionInfo.ExplosionForce);
+                }
             }
 
             TakeDamage(explosionInfo.Damage);
@@ -121,14 +123,18 @@ namespace Assets.Scripts.GamePlay.Enemis.Robot
 
                 Quaternion targetRotation = Quaternion.Euler(
                 0,
-                transform.rotation.eulerAngles.y + Quaternion.FromToRotation(shootPointForward, targetDirection).eulerAngles.y,
+                transform.rotation.eulerAngles.y + Quaternion.FromToRotation(shootPointForward, targetDirection)
+                    .eulerAngles.y,
                 0);
 
                 shootPointForward.y = 0;
                 targetDirection.y = 0;
 
                 if (Vector3.Angle(shootPointForward, targetDirection) > AngleDelta)
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+                {
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation,
+                        targetRotation, _rotationSpeed * Time.deltaTime);
+                }
 
                 yield return null;
             }

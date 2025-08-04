@@ -48,33 +48,13 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         {
             Dictionary<string, SelectingPanelElement> panels = new Dictionary<string, SelectingPanelElement>();
 
-            CharacterData[] datas = persistentProgressService.Progress.PlayerCharacters.Where(data => data.IsUnlocked).ToArray();
+            CharacterData[] allDatas = persistentProgressService.Progress.PlayerCharacters
+                .OrderBy(data => data.IsUnlocked ? 0 : 1)
+                .ToArray();
 
-            foreach (CharacterData skinData in datas)
+            foreach (CharacterData skinData in allDatas)
             {
                 SelectingPanelElement panel = await uiFactory.CreateCharacterSkinPanel(content);
-
-                Sprite icon = await _assetProvider.Load<Sprite>(_staticDataService.GetPlayerCharacter(skinData.Id).Icon);
-
-                panel.Initialize(icon);
-
-                if (skinData.IsBuyed)
-                    panel.Unlock();
-
-                if (skinData.IsUnlocked)
-                    ((PlayerCharacterPanel)panel).RemoveBackground();
-
-                panel.Clicked += OnPanelClicked;
-
-                panels.Add(skinData.Id, panel);
-            }
-
-            datas = persistentProgressService.Progress.PlayerCharacters.Where(data => data.IsUnlocked == false).ToArray();
-
-            foreach (CharacterData skinData in datas)
-            {
-                SelectingPanelElement panel = await uiFactory.CreateCharacterSkinPanel(content);
-
                 Sprite icon = await _assetProvider.Load<Sprite>(_staticDataService.GetPlayerCharacter(skinData.Id).Icon);
 
                 panel.Initialize(icon);

@@ -19,7 +19,8 @@ namespace Assets.Scripts.GamePlay.Enemis.Helicopter
 
         private void Start()
         {
-            _startRotation = new Vector3(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
+            _startRotation = new Vector3(transform.localRotation.eulerAngles.x,
+                transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z);
         }
 
         private void Update()

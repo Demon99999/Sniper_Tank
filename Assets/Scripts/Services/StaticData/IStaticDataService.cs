@@ -10,7 +10,6 @@ namespace Assets.Scripts.Services.StaticData
 {
     public interface IStaticDataService
     {
-        LaserConfig DiretionalLaserConfig { get; }
         TargetingLaserConfig TargetingLaserConfig { get; }
         TransmittingLaserConfig TransmittedLaserConfig { get; }
         CompositeBulletConfig CompositeBulletConfig { get; }

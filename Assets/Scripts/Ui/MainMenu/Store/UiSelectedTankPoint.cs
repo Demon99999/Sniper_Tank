@@ -122,7 +122,8 @@ namespace Assets.Scripts.Ui.MainMenu.Store
             Transform parent,
             ITankFactory tankFactory)
         {
-            Tank tank = await tankFactory.CreateTank(tankData.Level, position, rotation, parent, tankData.SkinId, tankData.DecalId, true);
+            Tank tank = await tankFactory.CreateTank(tankData.Level,
+                position, rotation, parent, tankData.SkinId, tankData.DecalId, true);
 
             return tank.gameObject;
         }
@@ -145,7 +146,8 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
             float rotation = input * _rotationSensivity;
 
-            TankPoint.transform.rotation = Quaternion.RotateTowards(TankPoint.transform.rotation, TankPoint.transform.rotation * Quaternion.Euler(0, 180, 0), rotation);
+            TankPoint.transform.rotation = Quaternion.RotateTowards(TankPoint.transform.rotation,
+                TankPoint.transform.rotation * Quaternion.Euler(0, 180, 0), rotation);
         }
 
         private void OnHandleMoveCompleted()
@@ -167,7 +169,8 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
             while (_isRotatedToTarget && TankPoint.transform.rotation != targetRotation)
             {
-                TankPoint.transform.rotation = Quaternion.RotateTowards(TankPoint.transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+                TankPoint.transform.rotation = Quaternion.RotateTowards(TankPoint.transform.rotation,
+                    targetRotation, _rotationSpeed * Time.deltaTime);
 
                 yield return null;
             }

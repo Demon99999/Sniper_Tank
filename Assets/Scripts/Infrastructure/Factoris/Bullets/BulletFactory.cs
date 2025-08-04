@@ -16,7 +16,6 @@ namespace Assets.Scripts.Infrastructure.Factoris.Bullets
         private readonly IStaticDataService _staticDataService;
         private readonly Factory<CollidingBullet> _forwardFlyingBulletFactory;
         private readonly Factory<HomingBullet> _homingBulletFactory;
-        private readonly Factory<DirectionalLaser> _directionalLaserFactory;
         private readonly Factory<TargetingLaser> _targetingLaserFactory;
         private readonly Factory<TransmittingLaser> _transmittedLaserFactory;
         private readonly Factory<CompositeBullet> _compositeBulletFactory;
@@ -34,7 +33,6 @@ namespace Assets.Scripts.Infrastructure.Factoris.Bullets
         {
             _staticDataService = staticDataService;
             _forwardFlyingBulletFactory = forwardFlyingBulletFactory;
-            _directionalLaserFactory = directionalLaserFactory;
             _muzzleFactory = muzzleFactory;
             _homingBulletFactory = homingBulletFactory;
             _compositeBulletFactory = compositeBulletFactory;

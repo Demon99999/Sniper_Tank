@@ -70,11 +70,16 @@ namespace Assets.Scripts.GamePlay.Bullets
 
             yield return new WaitForSeconds(_targetingDelay);
 
-            while (_isFollowed)
+            while (_isFollowed && Target != null)
             {
-                Quaternion targetRotation = Quaternion.LookRotation((Target.transform.position + (Vector3.up * Offset) - transform.position).normalized);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
-                ChangeTrajectory();
+                Vector3 direction = (Target.transform.position + (Vector3.up * Offset) - transform.position);
+
+                if (direction != Vector3.zero)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+                    ChangeTrajectory();
+                }
 
                 yield return null;
             }

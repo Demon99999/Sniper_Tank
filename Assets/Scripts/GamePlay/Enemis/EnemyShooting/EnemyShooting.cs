@@ -12,7 +12,7 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
 {
     public abstract class EnemyShooting : MonoBehaviour
     {
-        private readonly Vector3 TargetOffset = new Vector3(0, 2, 0);
+        private readonly Vector3 _targetOffset = new Vector3(0, 2, 0);
 
         [SerializeField] private Enemy _enemy;
         [SerializeField] private AudioSource _audioSource;
@@ -63,7 +63,9 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
         protected Quaternion GetShootingRotation()
         {
             Vector2 randomOffset = Random.insideUnitCircle * _gameplaySettings.EnemyScatter;
-            Vector3 targetPosition = PlayerWrapper.transform.position + TargetOffset + new Vector3(randomOffset.x, randomOffset.y, 0);
+
+            Vector3 targetPosition = PlayerWrapper.transform.position + _targetOffset +
+                new Vector3(randomOffset.x, randomOffset.y, 0);
 
             return Quaternion.LookRotation((targetPosition - GetCurrentShootingPosition()).normalized);
         }
@@ -81,9 +83,9 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
             if (_audioSource == null)
             {
                 _audioSource = GetComponent<AudioSource>();
+
                 if (_audioSource == null)
                 {
-                    Debug.LogError("AudioSource is missing!", this);
                     return;
                 }
             }

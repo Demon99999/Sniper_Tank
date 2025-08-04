@@ -38,7 +38,9 @@ namespace Assets.Scripts.Ui.MainMenu
 
         private void OnTanksBuyingCountUpdated()
         {
-            _fill.fillAmount = (float)_persistentPorgressService.Progress.TankBuyingData.RequiredForSpawnUpdateBuyingCount / (float)_staticDataService.MainMenuSettingsConfig.RequiredTanksNumberToSpawnUpdate;
+            _fill.fillAmount = (float)_persistentPorgressService.Progress.TankBuyingData
+                .RequiredForSpawnUpdateBuyingCount / 
+                (float)_staticDataService.MainMenuSettingsConfig.RequiredTanksNumberToSpawnUpdate;
         }
 
         private void OnTankSpawnLevelUpdated()

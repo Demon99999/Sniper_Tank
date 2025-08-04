@@ -52,13 +52,12 @@ namespace Assets.Scripts.GamePlay.Bullets
                 if (HitInfo.transform.TryGetComponent(out Enemy _))
                 {
                     enemies = enemies.Skip(1).ToArray();
-                    if (enemies.Count == 0) // Проверяем, не стал ли массив пустым
+                    if (enemies.Count == 0)
                         return;
                 }
 
                 await _bulletFactory.CreateTargetingLaser(fitsPoint, enemies[0].transform.position + _offset);
 
-                // Последующие сегменты (между врагами)
                 for (int i = 0; i < enemies.Count - 1; i++)
                 {
                     await _bulletFactory.CreateTargetingLaser(

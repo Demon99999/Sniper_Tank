@@ -35,14 +35,14 @@ namespace Assets.Scripts.GamePlay.Player.Weapons
 
         protected IBulletFactory BulletFactory { get; private set; }
         protected Quaternion BulletRotation => _gameplayCamera.transform.rotation;
-        public uint BulletsCount => _bulletsCount;
-        public uint RequireShotsNumberToSuperShot => _requireShotsNumberToSuperShot;
-        public uint ShootsNumberToSuperShot => _shootsNumberToSuperShot;
-
         protected uint BulletShootsCount => _bulletShootsCount;
         protected float BulletShootsDuration => _bulletShootsDuration;
         protected uint SuperBulletShootsCount => _superBulletShootsCount;
         protected float SuperBulletShootsDuration => _supperBulletShootsDuration;
+
+        public uint BulletsCount => _bulletsCount;
+        public uint RequireShotsNumberToSuperShot => _requireShotsNumberToSuperShot;
+        public uint ShootsNumberToSuperShot => _shootsNumberToSuperShot;
 
         [Inject]
         private void Construct(
@@ -64,13 +64,33 @@ namespace Assets.Scripts.GamePlay.Player.Weapons
             _aiming.Shooted += OnShoted;
         }
 
-        public void SetBulletPoints(Transform[] bulletPoints) =>
-            _bulletPoints = bulletPoints;
-
         private void OnDestroy()
         {
             _aiming.Shooted -= OnShoted;
         }
+
+        public void SetBulletPoints(Transform[] bulletPoints)
+        {
+            _bulletPoints = bulletPoints;
+        }
+
+        protected void OnBulletCreated()
+        {
+            _cameraShaking.Shake();
+            _audioSource.Play();
+        }
+
+        protected Transform GetBulletPoint(int index)
+        {
+            int bulletPointIndex = index >= _bulletPoints.Length ? index
+                - ((int)(index / _bulletPoints.Length) * _bulletPoints.Length) : index;
+
+            return _bulletPoints[bulletPointIndex];
+        }
+
+        protected abstract void Shoot();
+
+        protected abstract void SuperShoot();
 
         private void OnShoted()
         {
@@ -97,23 +117,6 @@ namespace Assets.Scripts.GamePlay.Player.Weapons
             if (_bulletsCount == 0)
                 StartCoroutine(Reloader());
         }
-
-        protected void OnBulletCreated()
-        {
-            _cameraShaking.Shake();
-            _audioSource.Play();
-        }
-
-        protected Transform GetBulletPoint(int index)
-        {
-            int bulletPointIndex = index >= _bulletPoints.Length ? index - ((int)(index / _bulletPoints.Length) * _bulletPoints.Length) : index;
-
-            return _bulletPoints[bulletPointIndex];
-        }
-
-        protected abstract void Shoot();
-
-        protected abstract void SuperShoot();
 
         private IEnumerator Reloader()
         {

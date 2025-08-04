@@ -16,8 +16,6 @@ namespace Assets.Scripts.GamePlay.Enemis.MaterialChanger
         {
             if (_infos == null || _infos.Length == 0)
             {
-                Debug.LogError($"No biome materials configured on {gameObject.name}", this);
-                Debug.Log(gameObject.name);
                 return;
             }
 
@@ -27,9 +25,6 @@ namespace Assets.Scripts.GamePlay.Enemis.MaterialChanger
 
             if (currentMaterialsInfo == null)
             {
-                // Обработка случая, когда элемент не найден
-                Debug.LogError("Не найден подходящий элемент в коллекции");
-                Debug.Log(gameObject.name);
                 return;
             }
 

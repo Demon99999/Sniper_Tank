@@ -1,70 +1,84 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
 {
     public class RotationEnemyShooting : EnemyForwartFlyingBulletsShooting
     {
-        [SerializeField] private Transform _shootPoint;
-        [SerializeField] private float _rotationSpeed;
+        [SerializeField] protected Transform _shootPoint;
+        [SerializeField] protected float _rotationSpeed;
 
-        private bool _isRotated;
-        private bool _isTurnedToPlayerTank;
+        protected bool _isRotating;
+        protected bool _isTurnedToTarget;
 
-        protected override bool CanShoot => base.CanShoot && _isTurnedToPlayerTank;
+        protected const float AngleDelta = 5f;
 
+        protected override bool CanShoot => base.CanShoot && _isTurnedToTarget;
         protected override Vector3 LookStartPosition => _shootPoint.position;
 
-        private void Start()
+        protected virtual void StartRotation()
         {
-            _isRotated = false;
-            _isTurnedToPlayerTank = false;
+            _isRotating = true;
+            _isTurnedToTarget = false;
+        }
+
+        protected virtual void StopRotation()
+        {
+            _isRotating = false;
         }
 
         protected override void StartShooting()
         {
             base.StartShooting();
-            StartCoroutine(Rotater());
+            StartCoroutine(RotateTowardsTarget(PlayerWrapper.transform, transform, _rotationSpeed,
+                () => _isTurnedToTarget = true, () => _isTurnedToTarget = false));
         }
 
         protected override void OnEnemyDestructed()
         {
             base.OnEnemyDestructed();
-            _isRotated = false;
+            StopRotation();
         }
 
-        protected override Vector3 GetCurrentShootPointPosition() =>
-            _shootPoint.position;
+        protected override Vector3 GetCurrentShootPointPosition() => _shootPoint.position;
 
-        private IEnumerator Rotater()
+        protected IEnumerator RotateTowardsTarget(Transform target, Transform rotatingPart, float speed,
+            Action onTargetReached, Action onTargetNotReached)
         {
-            _isRotated = true;
+            StartRotation();
 
-            while (_isRotated)
+            while (_isRotating)
             {
-                Vector3 shootPointForward = _shootPoint.forward;
-                Vector3 targetDirection = (PlayerWrapper.transform.position - _shootPoint.position).normalized;
+                Vector3 targetDirection = (target.position - rotatingPart.position).normalized;
+                Quaternion targetRotation = GetTargetRotation(targetDirection, rotatingPart);
 
-                Quaternion targetRotation = Quaternion.Euler(
-                0,
-                transform.rotation.eulerAngles.y + Quaternion.FromToRotation(shootPointForward, targetDirection).eulerAngles.y,
-                0);
-
-                shootPointForward.y = 0;
-                targetDirection.y = 0;
-
-                if (Vector3.Angle(shootPointForward, targetDirection) > AngleDelta)
+                if (Vector3.Angle(rotatingPart.forward, targetDirection) > AngleDelta)
                 {
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
-                    _isTurnedToPlayerTank = false;
+                    rotatingPart.rotation = Quaternion.RotateTowards(
+                        rotatingPart.rotation,
+                        targetRotation,
+                        speed * Time.deltaTime);
+
+                    onTargetNotReached?.Invoke();
                 }
                 else
                 {
-                    _isTurnedToPlayerTank = true;
+                    onTargetReached?.Invoke();
                 }
 
                 yield return null;
             }
+        }
+
+        protected virtual Quaternion GetTargetRotation(Vector3 targetDirection, Transform rotatingPart)
+        {
+            Vector3 shootPointForward = _shootPoint.forward;
+            return Quaternion.Euler(
+                0,
+                rotatingPart.rotation.eulerAngles.y + Quaternion.FromToRotation(shootPointForward,
+                    targetDirection).eulerAngles.y,
+                0);
         }
     }
 }

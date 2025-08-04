@@ -61,7 +61,9 @@ namespace Assets.Scripts.GamePlay.Enemis.Helicopter
             StartCoroutine(Rotater());
             _isDamaged = true;
             _destructionMaterialsRenderer.Render();
-            _fireParticle = Instantiate(_firePargiclePrefab, transform.position + _firePartilcePosition, Quaternion.identity, transform);
+
+            _fireParticle = Instantiate(_firePargiclePrefab, transform.position + _firePartilcePosition,
+                Quaternion.identity, transform);
         }
 
         private IEnumerator Rotater()
@@ -76,7 +78,8 @@ namespace Assets.Scripts.GamePlay.Enemis.Helicopter
                 rotationDegree += 90 * Time.deltaTime;
                 rotationDegree = rotationDegree % 360;
 
-                transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, rotationDegree, transform.localRotation.eulerAngles.z);
+                transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles.x, rotationDegree,
+                    transform.localRotation.eulerAngles.z);
 
                 yield return null;
             }

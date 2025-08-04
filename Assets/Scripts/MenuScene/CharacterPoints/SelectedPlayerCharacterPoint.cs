@@ -15,7 +15,7 @@ namespace Assets.Scripts.MenuScene.CharacterPoints
         [SerializeField] private TankScalingAnimator _scalingAnimator;
         [SerializeField] private float _scale;
 
-        protected IPersistentProgressService _persistentPorgressService;
+        private IPersistentProgressService _persistentPorgressService;
         private ITankFactory _tankFactory;
 
         private PlayerCharacter _playerCharacter;

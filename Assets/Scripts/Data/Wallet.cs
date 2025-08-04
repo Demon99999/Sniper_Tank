@@ -7,12 +7,12 @@ namespace Assets.Scripts.Data
     {
         public uint Value;
 
-        public event Action ValueChanged;
-
         public Wallet(uint startValue)
         {
             Value = startValue;
         }
+
+        public event Action ValueChanged;
 
         public bool TryTake(uint value)
         {

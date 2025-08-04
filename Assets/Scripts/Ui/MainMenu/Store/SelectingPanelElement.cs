@@ -24,13 +24,11 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         {
             StaticDataService = staticDataService;
 
-            // Получаем кнопку, если не назначена в инспекторе
             _button = _button ?? GetComponentInChildren<Button>(true);
 
             if (_button == null)
             {
-                Debug.LogError($"Button reference is null in {name}. Please assign Button reference in inspector.", this);
-                enabled = false; // Отключаем компонент
+                enabled = false;
                 return;
             }
 

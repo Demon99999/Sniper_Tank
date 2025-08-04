@@ -6,13 +6,14 @@ namespace Assets.Scripts.GamePlay.Bullets
 {
     public class Bomb : CollidingBullet
     {
+        private float _delayWaiter = 0.1f;
         private bool _canCollide;
 
         private void Start()
         {
             _canCollide = false;
 
-            StartCoroutine(Waiter(0.1f, () => _canCollide = true));
+            StartCoroutine(Waiter( _delayWaiter, () => _canCollide = true));
         }
 
         protected override void OnCollisionEnter(Collision collision)

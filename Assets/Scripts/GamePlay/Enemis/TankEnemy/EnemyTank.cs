@@ -5,7 +5,7 @@ namespace Assets.Scripts.GamePlay.Enemis.TankEnemy
 {
     public class EnemyTank : EnemyEnginery
     {
-        private uint numberModifier = 3;
+        private uint _numberModifier = 3;
 
         [SerializeField] private EnemyTankPart[] _parts;
 
@@ -19,7 +19,7 @@ namespace Assets.Scripts.GamePlay.Enemis.TankEnemy
             }
             else
             {
-                return explosionInfo.Damage / numberModifier;
+                return explosionInfo.Damage / _numberModifier;
             }
         }
     }

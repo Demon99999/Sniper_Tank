@@ -7,16 +7,12 @@ using Assets.Scripts.Services.PersistentProgressServices;
 using Assets.Scripts.Services.StaticData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using YG;
 using Zenject;
 
 namespace Assets.Scripts.Ui.MainMenu.Store
 {
     public class DecalSelectiongPanel : SelectionPanel<string>
     {
-        private const string Texture = "_Texture";
-        private const int RewardID = 4;
-
         [SerializeField] private int _tankRotationAngle;
         [SerializeField] private UiSelectedTankPoint _tankPoint;
 
@@ -77,7 +73,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
             if (decalData.IsUnlocked == false)
             {
-                //YandexGame.RewVideoShow(RewardID);
                 persistentProgressService.Progress.UnlockDecal(key);
             }
             else

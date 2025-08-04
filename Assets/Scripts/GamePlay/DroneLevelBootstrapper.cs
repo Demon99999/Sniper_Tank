@@ -22,7 +22,8 @@ namespace Assets.Scripts.GamePlay
             IStaticDataService staticDataService,
             IPersistentProgressService persistentProgressService,
             VictoryWindowType victoryWindowType)
-            : base(uiFactory, gameplayFactory, tankFactory, playerPoint, aimingCameraPoint, staticDataService, persistentProgressService, victoryWindowType)
+            : base(uiFactory, gameplayFactory, tankFactory, playerPoint, aimingCameraPoint,
+                staticDataService, persistentProgressService, victoryWindowType)
         {
         }
 

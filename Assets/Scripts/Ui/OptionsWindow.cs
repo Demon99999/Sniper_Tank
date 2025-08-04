@@ -18,6 +18,8 @@ namespace Assets.Scripts.Ui
         [SerializeField] private AudioMixer _audioMixer;
 
         private IPersistentProgressService _persistentProgressService;
+        private float Max = -80;
+        private float Min = 0;
 
         [Inject]
         private void Construct(IPersistentProgressService persistentProgressService)
@@ -62,7 +64,12 @@ namespace Assets.Scripts.Ui
 
         private void OnDeactiveSoundsButtonClicked()
         {
-            _audioMixer.SetFloat(Volume, -80);
+            if (float.IsNaN(Max))
+            {
+                Max = -80f;
+            }
+
+            _audioMixer.SetFloat(Volume, Max);
             _persistentProgressService.Progress.IsSoundOn = false;
 
             SetCanvasGroupActive(_activeSoundsButtonCanvasGroup, true);
@@ -71,7 +78,12 @@ namespace Assets.Scripts.Ui
 
         private void OnActiveSoundsButtonClicked()
         {
-            _audioMixer.SetFloat(Volume, 0);
+            if (float.IsNaN(Min))
+            {
+                Min = 0f;
+            }
+
+            _audioMixer.SetFloat(Volume, Min);
             _persistentProgressService.Progress.IsSoundOn = true;
 
             SetCanvasGroupActive(_activeSoundsButtonCanvasGroup, false);

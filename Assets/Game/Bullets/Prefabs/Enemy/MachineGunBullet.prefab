@@ -317,7 +317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 19801142, guid: ddad452a7dadbb54596f7ac47a695166, type: 3}
-  _source: {fileID: 8677254072039551416}
   _projectile: {fileID: 4671886193695372484}
   StartPosition: {x: 0, y: 0, z: 0}
   _rigidbody: {fileID: 3717835296626206797}
@@ -331,6 +330,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5210522039050622393}
     m_Modifications:
+    - target: {fileID: 3041020959935679790, guid: 43e646fa61638f942a356536ecc9ec47, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4449777905919978805, guid: 43e646fa61638f942a356536ecc9ec47, type: 3}
       propertyPath: _explosion
       value: 
@@ -392,10 +395,5 @@ PrefabInstance:
 --- !u!4 &4354750362679435599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7941819251831315929, guid: 43e646fa61638f942a356536ecc9ec47, type: 3}
-  m_PrefabInstance: {fileID: 5933541891701308566}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &8677254072039551416 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3041020959935679790, guid: 43e646fa61638f942a356536ecc9ec47, type: 3}
   m_PrefabInstance: {fileID: 5933541891701308566}
   m_PrefabAsset: {fileID: 0}

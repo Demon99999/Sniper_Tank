@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Assets.Scripts.GamePlay.Tanks;
-using Assets.Scripts.Infrastructure.Factoris;
 using Assets.Scripts.Infrastructure.Factoris.TankFactory;
 using Assets.Scripts.Services.PersistentProgressServices;
 using Assets.Scripts.Services.StaticData;
@@ -58,7 +57,9 @@ namespace Assets.Scripts.MenuScene.Desk
             _tankWrapper = await _tankFactory.CreateDeskTankWrapper(_tankPoint.position, transform);
             _tankWrapper.Initialize(level);
 
-            Tank tank = await _tankFactory.CreateTank(actualyTankLevel, _tankWrapper.TankPoint.position, _tankRotation, _tankWrapper.TankPoint, string.Empty, string.Empty);
+            Tank tank = await _tankFactory.CreateTank(actualyTankLevel, _tankWrapper.TankPoint.position,
+                _tankRotation, _tankWrapper.TankPoint, string.Empty, string.Empty);
+
             tank.SetLevel(level);
             tank.transform.localScale = Vector3.one * _tankScale;
 

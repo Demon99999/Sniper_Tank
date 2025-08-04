@@ -11,20 +11,17 @@ namespace Assets.Scripts.Services.StateMachine.States
         private readonly IAssetProvider _assetProvider;
         private readonly GameStateMachine _gameStateMachine;
         private readonly IStaticDataService _staticDataService;
-        private readonly ICoroutineRunner _coroutineRunner;
         private readonly LoadingCurtainProxy _loadingCurtainProyxy;
 
         public BootstapState(
             IAssetProvider assetProvider,
             GameStateMachine gameStateMachine,
             IStaticDataService staticDataService,
-            ICoroutineRunner coroutineRunner,
             LoadingCurtainProxy loadingCurtainProyxy)
         {
             _assetProvider = assetProvider;
             _gameStateMachine = gameStateMachine;
             _staticDataService = staticDataService;
-            _coroutineRunner = coroutineRunner;
             _loadingCurtainProyxy = loadingCurtainProyxy;
         }
 

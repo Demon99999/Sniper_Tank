@@ -12,15 +12,15 @@ namespace Assets.Scripts.GamePlay.Destructions.Building
 
         public event Action<Vector3, uint> Destructed;
 
-        public bool IsBreaked { get; private set; }
-        public bool IsFoundation => _isFoundation;
+        private bool _isBreaked;
+        
         public Transform Transform => transform;
 
         private void Start()
         {
             _neighboringCells = new List<DestructionCell>();
 
-            IsBreaked = false;
+            _isBreaked = false;
         }
 
         private void OnDrawGizmos()
@@ -30,7 +30,7 @@ namespace Assets.Scripts.GamePlay.Destructions.Building
 
             if (_isFoundation)
                 Gizmos.color = Color.blue;
-            else if (IsConnectedToFondation(new List<DestructionCell>()) && IsBreaked == false)
+            else if (IsConnectedToFondation(new List<DestructionCell>()) && _isBreaked == false)
                 Gizmos.color = Color.yellow;
             else
                 Gizmos.color = Color.red;
@@ -76,7 +76,7 @@ namespace Assets.Scripts.GamePlay.Destructions.Building
             {
                 if (destructionCell == null)
                     continue;
-                else if (checkedCells.Contains(destructionCell) || destructionCell.IsBreaked)
+                else if (checkedCells.Contains(destructionCell) || destructionCell._isBreaked)
                     continue;
                 else if (destructionCell.IsConnectedToFondation(checkedCells))
                     return true;
@@ -87,12 +87,12 @@ namespace Assets.Scripts.GamePlay.Destructions.Building
 
         public override void Destruct(Vector3 bulletPosition, uint explosionForce)
         {
-            if (IsBreaked || IsFoundation)
+            if (_isBreaked || _isFoundation)
                 return;
 
             Destructed?.Invoke(bulletPosition, explosionForce);
 
-            IsBreaked = true;
+            _isBreaked = true;
 
             foreach (DestructionCell neigboringCell in _neighboringCells)
                 neigboringCell.ReportDestruction(new List<DestructionCell>(), bulletPosition, explosionForce);

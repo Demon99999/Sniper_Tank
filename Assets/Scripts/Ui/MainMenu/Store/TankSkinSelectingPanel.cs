@@ -7,7 +7,6 @@ using Assets.Scripts.Services.StaticData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 using Zenject;
 
 namespace Assets.Scripts.Ui.MainMenu.Store
@@ -41,7 +40,9 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
                 Material material = await _assetProvider.Load<Material>(_staticDataServcie.GetSkin(tankSkinData.Id).MaterialAssetReference);
                 Texture2D texture = material.GetTexture(Texture) as Texture2D;
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(texture.width / 2, texture.height / 2));
+
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                    new Vector2(texture.width / 2, texture.height / 2));
 
                 panel.Initialize(sprite);
 
@@ -67,7 +68,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
             if (tankSkinData.IsUnlocked == false)
             {
-                //YandexGame.RewVideoShow(RewardID);
                 persistentProgressService.Progress.UnlockTankSkin(key);
             }
             else

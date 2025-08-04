@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
 {
@@ -8,51 +7,21 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
         [SerializeField] private Transform _turret;
         [SerializeField] private uint _turretRotationSpeed;
 
-        private bool _isTurretRotated;
-        private bool _isTurretTurnedToPlayerTank;
+        private bool _isTurretTurnedToTarget;
 
-        protected override bool CanShoot => base.CanShoot && _isTurretTurnedToPlayerTank;
-
-        private void Start()
-        {
-            _isTurretTurnedToPlayerTank = false;
-            _isTurretRotated = false;
-        }
+        protected override bool CanShoot => base.CanShoot && _isTurretTurnedToTarget;
 
         protected override void StartShooting()
         {
             base.StartShooting();
-            StartCoroutine(TurretRotater());
+            StartCoroutine(RotateTowardsTarget(PlayerWrapper.transform, _turret, _turretRotationSpeed,
+                () => _isTurretTurnedToTarget = true,
+                () => _isTurretTurnedToTarget = false));
         }
 
-        protected override void OnEnemyDestructed()
+        protected override Quaternion GetTargetRotation(Vector3 targetDirection, Transform rotatingPart)
         {
-            base.OnEnemyDestructed();
-            _isTurretRotated = false;
-        }
-
-        private IEnumerator TurretRotater()
-        {
-            _isTurretRotated = true;
-
-            while (_isTurretRotated)
-            {
-                Vector3 targetDiretion = (PlayerWrapper.transform.position - _turret.transform.position).normalized;
-
-                Quaternion targetRotation = Quaternion.LookRotation(targetDiretion, Vector3.right);
-
-                if (Vector3.Angle(_turret.transform.forward, targetDiretion) > AngleDelta)
-                {
-                    _turret.transform.rotation = Quaternion.RotateTowards(_turret.transform.rotation, targetRotation, _turretRotationSpeed * Time.deltaTime);
-                    _isTurretTurnedToPlayerTank = false;
-                }
-                else
-                {
-                    _isTurretTurnedToPlayerTank = true;
-                }
-
-                yield return null;
-            }
+            return Quaternion.LookRotation(targetDirection, Vector3.right);
         }
     }
 }

@@ -25,7 +25,9 @@ namespace Assets.Scripts.GamePlay.Destructions
             foreach (DestructionPart destructionPart in _destructionParts)
             {
                 destructionPart.transform.parent = null;
-                destructionPart.Destruct((explosionInfo.ExplosionPosition + transform.position) / 2, explosionInfo.ExplosionForce + ExplosionForce);
+
+                destructionPart.Destruct((explosionInfo.ExplosionPosition + transform.position) / 2,
+                    explosionInfo.ExplosionForce + ExplosionForce);
             }
 
             Explode();

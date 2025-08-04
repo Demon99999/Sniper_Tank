@@ -17,7 +17,8 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
 
         private IBulletFactory _bulletFactory;
 
-        protected override bool CanShoot => base.CanShoot && _bossDestructionPart.IsDesturcted == false && _enemySubmarine.IsSurfaced && _enemySubmarine.IsDestructed == false;
+        protected override bool CanShoot => base.CanShoot && _bossDestructionPart.IsDesturcted == false
+            && _enemySubmarine.IsSurfaced && _enemySubmarine.IsDestructed == false;
 
         [Inject]
         private void Construct(IBulletFactory bulletFactory) =>
@@ -36,7 +37,9 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
             {
                 if (CanShoot)
                 {
-                    _bulletFactory.CreateHomingBullet(HomingBulletType.SubmarineRocket, _shootPoint.position, _shootPoint.rotation);
+                    _bulletFactory.CreateHomingBullet(HomingBulletType.SubmarineRocket, _shootPoint.position,
+                        _shootPoint.rotation);
+
                     _bulletFactory.CreateMuzzle(_muzzleType, _shootPoint.position, _shootPoint.rotation);
                 }
 

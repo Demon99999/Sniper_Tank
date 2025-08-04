@@ -35,7 +35,9 @@ namespace Assets.Scripts.GamePlay.Enemis.Helicopter.HelicopterBoss
 
                 if (Vector3.Distance(weaponPart.transform.position, explosionInfo.ExplosionPosition) < Delta
                     && weaponPart.IsDesturcted == false)
+                {
                     weaponPart.Destruct(explosionInfo.ExplosionPosition, explosionInfo.ExplosionForce);
+                }
             }
 
             if (_health == 0)

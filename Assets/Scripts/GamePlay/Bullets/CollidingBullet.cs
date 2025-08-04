@@ -35,21 +35,33 @@ namespace Assets.Scripts.GamePlay.Bullets
 
         protected virtual void Explode()
         {
-            if (_isExploded)
-                return;
+            if (_isExploded || this == null) return;
 
             _isExploded = true;
-
             Stop();
-            CreateExplosionParticle(transform.position, _isExplosionAlongMoveDiretion ? Quaternion.LookRotation(-transform.forward) : Quaternion.identity);
-            DestroyProjectile();
+
+            var rotation = _isExplosionAlongMoveDiretion && transform.forward != Vector3.zero
+                ? Quaternion.LookRotation(-transform.forward)
+                : Quaternion.identity;
+
+            CreateExplosionParticle(transform.position, rotation);
             Explode(transform.position);
-            Destroy();
+
+            if (Projectile != null) Destroy(Projectile);
+            Destroy(gameObject, _explosionLifeTime);
         }
 
         protected void ChangeTrajectory()
         {
-            _rigidbody.velocity = transform.forward * _flightSpeed;
+            if (_rigidbody != null)
+            {
+                _rigidbody.velocity = transform.forward * _flightSpeed;
+            }
+        }
+
+        protected virtual void DestroyAfterLifeTimeLimit(float lifeTimeLimt)
+        {
+            Destroy(gameObject, lifeTimeLimt);
         }
 
         private void Destroy()
@@ -62,16 +74,18 @@ namespace Assets.Scripts.GamePlay.Bullets
             Destroy(Projectile);
         }
 
-        protected virtual void DestroyAfterLifeTimeLimit(float lifeTimeLimt)
-        {
-            Destroy(gameObject, lifeTimeLimt);
-        }
-
         private void Stop()
         {
-            _rigidbody.velocity = Vector3.zero;
-            _rigidbody.isKinematic = true;
-            _collider.enabled = false;
+            if (_rigidbody != null)
+            {
+                _rigidbody.velocity = Vector3.zero;
+                _rigidbody.isKinematic = true;
+            }
+
+            if (_collider != null)
+            {
+                _collider.enabled = false;
+            }
         }
     }
 }

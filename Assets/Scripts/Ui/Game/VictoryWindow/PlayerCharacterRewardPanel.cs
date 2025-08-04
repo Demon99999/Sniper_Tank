@@ -28,8 +28,6 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
         [SerializeField] private Vector3 _characterOffset;
 
         private IPersistentProgressService _persistentProgressService;
-        private IStaticDataService _staticDataService;
-        private IAssetProvider _assetProvider;
         private ITankFactory _tankFactory;
         private IGameplayFactory _gameplayFactory;
 
@@ -45,8 +43,6 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
             IGameplayFactory gameplayFactory)
         {
             _persistentProgressService = persistentProgressService;
-            _staticDataService = staticDataService;
-            _assetProvider = assetProvider;
             _tankFactory = tankFactory;
             _gameplayFactory = gameplayFactory;
 
@@ -78,7 +74,9 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
             _persistentProgressService.Progress.GetPlayerCharacter(_characterId).IsUnlocked = true;
 
             UiCamera camera = await _gameplayFactory.CreateUiCamra();
-            _playerCharacter = await _tankFactory.CreatePlayerCharacter(_characterId, camera.transform.position + _characterOffset, Quaternion.identity, camera.transform);
+
+            _playerCharacter = await _tankFactory.CreatePlayerCharacter(_characterId,
+                camera.transform.position + _characterOffset, Quaternion.identity, camera.transform);
 
             foreach (Transform transform in _playerCharacter.GetComponentsInChildren<Transform>())
             {

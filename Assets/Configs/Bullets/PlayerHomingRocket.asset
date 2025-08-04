@@ -24,6 +24,6 @@ MonoBehaviour:
   FlightSpeed: 80
   LifeTimeLimit: 5
   Type: 2
-  SearchRadius: 0
+  SearchRadius: 10
   RotationSpeed: 360
   TargetingDelay: 0.1

@@ -12,12 +12,6 @@ namespace Assets.Scripts.MenuScene.CharacterPoints
         private readonly Vector3 _offset = new Vector3(0, 2, 0);
 
         [SerializeField] private TMP_Text _tankLevelValue;
-
-       
-
-
-
-        [SerializeField] private Vector3 _characterOffset = new Vector3(0, 2, 0);
         [SerializeField] private float _fallHeight = 10f;
         [SerializeField] private float _fallDuration = 1f;
 
@@ -52,7 +46,6 @@ namespace Assets.Scripts.MenuScene.CharacterPoints
                 _currentTankWrapper = null;
             }
 
-            // Создаем новый танк
             Vector3 targetPosition = position;
             Vector3 startPosition = targetPosition + Vector3.up * _fallHeight;
 
@@ -78,14 +71,15 @@ namespace Assets.Scripts.MenuScene.CharacterPoints
                 return null;
 
             _playerCharacter = await CreatePlayerCharacter(tankFactory, _tank);
+
             if (_isDestroyed || _playerCharacter == null)
                 return null;
 
             _currentTankWrapper.SetBulletPoints(_tank.BulletPoints);
             _tankLevelValue.text = tankData.Level.ToString();
 
-            // Запускаем анимацию падения
             await AnimateTankFall(_currentTankWrapper.gameObject, targetPosition);
+
             if (_isDestroyed)
                 return null;
 
@@ -122,7 +116,8 @@ namespace Assets.Scripts.MenuScene.CharacterPoints
 
         private async UniTask AnimateTankFall(GameObject tankObject, Vector3 targetPosition)
         {
-            if (tankObject == null) return;
+            if (tankObject == null)
+                return;
 
             float elapsedTime = 0f;
             Vector3 startPosition = tankObject.transform.position;
@@ -150,6 +145,5 @@ namespace Assets.Scripts.MenuScene.CharacterPoints
         {
             return 1 - (1 - x) * (1 - x);
         }
-
     }
 }

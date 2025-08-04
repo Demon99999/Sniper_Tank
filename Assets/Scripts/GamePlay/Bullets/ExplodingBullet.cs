@@ -10,6 +10,8 @@ namespace Assets.Scripts.GamePlay.Bullets
         private uint _explosionForce;
         private uint _damage;
 
+        private ExplodingBullet bullet;
+
         public Vector3 StartPosition;
         protected GameObject Projectile => _projectile;
 
@@ -24,7 +26,9 @@ namespace Assets.Scripts.GamePlay.Bullets
             return this;
         }
 
-        protected void Explode(Vector3 position) =>
+        protected void Explode(Vector3 position)
+        {
             Explode(position, _explosionRadius, _explosionForce, _damage);
+        }
     }
 }

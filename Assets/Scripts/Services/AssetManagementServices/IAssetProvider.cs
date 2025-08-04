@@ -15,7 +15,6 @@ namespace Assets.Scripts.Services.AssetManagementServices
         UniTask InitializeAsync();
         UniTask WarmupAssetsByLable(string label);
         UniTask<List<string>> GetAssetsListByLabel<TAsset>(string label);
-        void CleanUp();
         UniTask<TAsset> Load<TAsset>(AssetReference reference);
         UniTask ReleaseAssetsByLabel(string label);
     }

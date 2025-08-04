@@ -73,10 +73,13 @@ namespace Assets.Scripts.GamePlay.Player.Wrappers
         {
             if (collision.transform.TryGetComponent(out ExplodingBullet bullet))
             {
-                Vector3 bulletPosition = _gameplayCamera.Camera.WorldToScreenPoint(new Vector3(bullet.StartPosition.x, bullet.StartPosition.y, bullet.StartPosition.z));
-                float height = Screen.resolutions[0].height;
-                float widht = Screen.resolutions[0].width;
-                Vector2 attackPosition = new Vector2(bulletPosition.x > height ? 1 : -1, bulletPosition.y > widht ? 1 : -1);
+                Vector3 bulletPosition = _gameplayCamera.Camera.WorldToScreenPoint(new Vector3(bullet.StartPosition.x,
+                    bullet.StartPosition.y, bullet.StartPosition.z));
+                
+                var (height, width) = (Screen.currentResolution.height, Screen.currentResolution.width);
+
+                Vector2 attackPosition = new Vector2(bulletPosition.x > height ? 1 : -1,
+                    bulletPosition.y > width ? 1 : -1);
 
                 Attacked?.Invoke(attackPosition);
             }
@@ -140,10 +143,13 @@ namespace Assets.Scripts.GamePlay.Player.Wrappers
             bool isCompleted = false;
 
             Vector3 startPosition = transform.position;
-            Vector3 targetPosition = isAimed ? _startPosition + transform.forward * _movingDistance * _aimingConfig.TankMovingDistanceModifier : _startPosition;
+            Vector3 targetPosition = isAimed ? _startPosition + transform.forward * _movingDistance
+                * _aimingConfig.TankMovingDistanceModifier : _startPosition;
 
             Quaternion startRotation = _turret.rotation;
-            Quaternion targetRotation = isAimed ? _startTurretRotation * Quaternion.AngleAxis(_aimingConfig.TankTurretRotation, Vector3.up) : _startTurretRotation;
+
+            Quaternion targetRotation = isAimed ? _startTurretRotation
+                * Quaternion.AngleAxis(_aimingConfig.TankTurretRotation, Vector3.up) : _startTurretRotation;
 
             while (isCompleted == false)
             {
@@ -159,7 +165,8 @@ namespace Assets.Scripts.GamePlay.Player.Wrappers
             }
         }
 
-        public class Factory : PlaceholderFactory<AssetReferenceGameObject, Vector3, Quaternion, UniTask<PlayerTankWrapper>>
+        public class Factory : PlaceholderFactory<AssetReferenceGameObject, Vector3, Quaternion,
+            UniTask<PlayerTankWrapper>>
         {
         }
     }

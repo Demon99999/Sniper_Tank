@@ -65,7 +65,9 @@ namespace Assets.Scripts.Ui.MainMenu
 
         private void OnWalletValueChanged()
         {
-            _isWalletValueEnough = _persistentProgressService.Progress.Wallet.Value >= _persistentProgressService.Progress.TankBuyingData.CurrentCost;
+            _isWalletValueEnough = _persistentProgressService.Progress.Wallet.Value 
+                >= _persistentProgressService.Progress.TankBuyingData.CurrentCost;
+
             ChangeInteractable();
         }
 

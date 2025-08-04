@@ -7,7 +7,7 @@ namespace Assets.Scripts.GamePlay.Bullets
 {
     public class CompositeBullet : CollidingBullet
     {
-        private readonly Vector3 BombDiretionOffset = new Vector3(0, 2, 0);
+        private readonly Vector3 _bombDiretionOffset = new Vector3(0, 2, 0);
 
         private IBulletFactory _bulletFactory;
         private uint _bombsCount;
@@ -35,7 +35,7 @@ namespace Assets.Scripts.GamePlay.Bullets
         {
             for (int i = 0; i < _bombsCount; i++)
             {
-                Vector3 bombDirection = (Random.onUnitSphere + BombDiretionOffset).normalized;
+                Vector3 bombDirection = (Random.onUnitSphere + _bombDiretionOffset).normalized;
 
                 _bulletFactory.CreateForwardFlyingBullet(ForwardFlyingBulletType.Bomb, transform.position, Quaternion.LookRotation(bombDirection));
             }

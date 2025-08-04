@@ -15,8 +15,11 @@ namespace Assets.Scripts.GamePlay.Bullets
 
         protected override void SearchTarget(uint searchRadius)
         {
-            Target = _playerWrapper.transform;
-            StartCoroutine(TargetLocator());
+            if (_playerWrapper != null && _playerWrapper.transform != null)
+            {
+                Target = _playerWrapper.transform;
+                StartCoroutine(TargetLocator());
+            }
         }
     }
 }

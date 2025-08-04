@@ -75,7 +75,8 @@ namespace Assets.Scripts.GamePlay.Enemis.Movement
             Rotate();
         }
 
-        public void Initialize(PathPointConfig[] path, bool isWaitedAttack, bool isPathLooped, float waitingTimeOnPoint, float rotorSpeed)
+        public void Initialize(PathPointConfig[] path, bool isWaitedAttack, bool isPathLooped,
+            float waitingTimeOnPoint, float rotorSpeed)
         {
             _path = path;
             _isWaitedAttack = isWaitedAttack;
@@ -94,14 +95,21 @@ namespace Assets.Scripts.GamePlay.Enemis.Movement
             if (_isPointReached && (_canLookToPlayer == false || _needLookToPlayer == false))
                 return;
 
-            Vector2 lookDiretion = _canLookToPlayer && _needLookToPlayer ? (new Vector2(_playerWrapper.transform.position.x, _playerWrapper.transform.position.z) - new Vector2(transform.position.x, transform.position.z)).normalized : _horizontalMovement;
+            Vector2 lookDiretion = _canLookToPlayer && _needLookToPlayer ? (new Vector2(_playerWrapper
+                .transform.position.x, _playerWrapper.transform.position.z) - new Vector2(transform.position.x,
+                transform.position.z)).normalized : _horizontalMovement;
 
             if (lookDiretion == Vector2.zero)
                 return;
 
-            Quaternion rotation = Quaternion.LookRotation(new Vector3(lookDiretion.x, 0, lookDiretion.y), transform.up);
-            _helicopter.rotation = Quaternion.RotateTowards(_helicopter.rotation, rotation, _rotationSpeed * Time.deltaTime);
-            _helicopter.localRotation = Quaternion.Euler(0, _helicopter.localRotation.eulerAngles.y, _helicopter.localRotation.eulerAngles.z);
+            Quaternion rotation = Quaternion.LookRotation(new Vector3(lookDiretion.x, 0, lookDiretion.y),
+                transform.up);
+
+            _helicopter.rotation = Quaternion.RotateTowards(_helicopter.rotation, rotation,
+                _rotationSpeed * Time.deltaTime);
+
+            _helicopter.localRotation = Quaternion.Euler(0, _helicopter.localRotation.eulerAngles.y,
+                _helicopter.localRotation.eulerAngles.z);
         }
 
         private void Move()
@@ -110,12 +118,17 @@ namespace Assets.Scripts.GamePlay.Enemis.Movement
                 return;
 
             Vector2 position = new Vector2(transform.position.x, transform.position.z);
-            _horizontalMovement = (new Vector2(_targetPoint.Position.x, _targetPoint.Position.z) - position).normalized;
+
+            _horizontalMovement = (new Vector2(_targetPoint.Position.x, _targetPoint.Position.z) 
+                - position).normalized;
 
             if (_isPointReached == false)
             {
-                _rigidbody.AddRelativeForce(Vector3.forward * Mathf.Max(0f, _horizontalMovement.y * _movingForce * _rigidbody.mass));
-                _rigidbody.AddRelativeForce(Vector3.right * Mathf.Max(0f, _horizontalMovement.x * _movingForce * _rigidbody.mass));
+                _rigidbody.AddRelativeForce(Vector3.forward * Mathf.Max(0f, _horizontalMovement.y
+                    * _movingForce * _rigidbody.mass));
+
+                _rigidbody.AddRelativeForce(Vector3.right * Mathf.Max(0f, _horizontalMovement.x
+                    * _movingForce * _rigidbody.mass));
             }
         }
 
@@ -146,7 +159,9 @@ namespace Assets.Scripts.GamePlay.Enemis.Movement
 
             _hotizontalTilt.x = Mathf.Lerp(_hotizontalTilt.x, targetTiltX, Time.deltaTime);
             _hotizontalTilt.y = Mathf.Lerp(_hotizontalTilt.y, targetTiltY, Time.deltaTime);
-            _rigidbody.transform.localRotation = Quaternion.Euler(_hotizontalTilt.y, _rigidbody.transform.localEulerAngles.y, -_hotizontalTilt.x);
+
+            _rigidbody.transform.localRotation = Quaternion.Euler(_hotizontalTilt.y,
+                _rigidbody.transform.localEulerAngles.y, -_hotizontalTilt.x);
         }
 
         private void OnPlayerShooted()
@@ -173,7 +188,8 @@ namespace Assets.Scripts.GamePlay.Enemis.Movement
 
                 _isPointReached = false;
 
-                yield return new WaitWhile(() => Vector3.Distance(transform.position, _targetPoint.Position) > _targetPoint.RotationDelta);
+                yield return new WaitWhile(() => Vector3
+                .Distance(transform.position, _targetPoint.Position) > _targetPoint.RotationDelta);
 
                 _isPointReached = true;
                 _canLookToPlayer = true;

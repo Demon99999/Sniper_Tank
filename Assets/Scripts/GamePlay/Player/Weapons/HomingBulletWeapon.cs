@@ -10,7 +10,9 @@ namespace Assets.Scripts.GamePlay.Player.Weapons
 
         protected override void Shoot()
         {
-            BulletFactory.CreateForwardFlyingBullet(ForwardFlyingBulletType.TankRocket, GetBulletPoint(_bulletNumber).position, BulletRotation);
+            BulletFactory.CreateForwardFlyingBullet(ForwardFlyingBulletType.TankRocket,
+                GetBulletPoint(_bulletNumber).position, BulletRotation);
+
             _bulletNumber++;
             OnBulletCreated();
         }

@@ -15,7 +15,8 @@ namespace Assets.Scripts.GamePlay.Enemis.Helicopter.HelicopterBoss
         protected override bool CanShoot => 
             _weaponPart.IsDesturcted == false && 
             base.CanShoot && 
-            Vector2.Angle(new Vector2(PlayerWrapper.transform.position.x - LookStartPosition.x, PlayerWrapper.transform.position.z - LookStartPosition.z),
+            Vector2.Angle(new Vector2(PlayerWrapper.transform.position.x - LookStartPosition.x,
+                PlayerWrapper.transform.position.z - LookStartPosition.z),
                 new Vector2(_helicopter.transform.forward.x, _helicopter.transform.forward.z)) < AngleDelta;
 
         protected override Vector3 LookStartPosition => transform.position;

@@ -71,7 +71,8 @@ namespace Assets.Scripts.Infrastructure.Factoris.TankFactory
         public async UniTask<PlayerCharacter> CreatePlayerCharacter(string id, Vector3 position, Quaternion rotation,
             Transform parent)
         {
-            return await _playerCharacterFactory.Create(_staticDataService.GetPlayerCharacter(id).AssetReference, position, rotation, parent);
+            return await _playerCharacterFactory.Create(_staticDataService.GetPlayerCharacter(id).AssetReference,
+                position, rotation, parent);
         }
 
         public async UniTask<Drone> CreateDrone(Vector3 position, Quaternion rotation)
@@ -81,18 +82,26 @@ namespace Assets.Scripts.Infrastructure.Factoris.TankFactory
 
         public async UniTask CreatePlayerDroneWrapper(Vector3 position, Quaternion rotation)
         {
-            PlayerWrapper wrapper = await _playerDronFactory.Create(TankFactoryAssets.PlayerDroneWrapper, position, rotation);
+            PlayerWrapper wrapper = await _playerDronFactory.Create(TankFactoryAssets.PlayerDroneWrapper,
+                position, rotation);
+
             _container.BindInstance(wrapper).AsSingle();
-            _container.BindInterfacesAndSelfTo<PlayerDroneWrapper>().FromInstance((PlayerDroneWrapper)wrapper).AsSingle();
+
+            _container.BindInterfacesAndSelfTo<PlayerDroneWrapper>()
+                .FromInstance((PlayerDroneWrapper)wrapper).AsSingle();
         }
 
-        public async UniTask<PlayerTankWrapper> CreatePlayerTankWrapper(uint tankLevel, Vector3 position, Quaternion rotation)
+        public async UniTask<PlayerTankWrapper> CreatePlayerTankWrapper(uint tankLevel,
+            Vector3 position, Quaternion rotation)
         {
-            PlayerTankWrapper wrapper = await _playerTankWrapperFactory.Create(_staticDataService.GetTank(tankLevel).GameplayWrapperAssetReference, position, rotation);
+            PlayerTankWrapper wrapper = await _playerTankWrapperFactory.Create(_staticDataService.GetTank(tankLevel)
+                .GameplayWrapperAssetReference, position, rotation);
 
             _container.BindInstance(wrapper).AsSingle();
             _container.BindInstance(wrapper as PlayerWrapper).AsSingle();
-            _container.BindInterfacesAndSelfTo<PlayerTankWeapon>().FromInstance(wrapper.GetComponent<PlayerTankWeapon>()).AsSingle();
+
+            _container.BindInterfacesAndSelfTo<PlayerTankWeapon>()
+                .FromInstance(wrapper.GetComponent<PlayerTankWeapon>()).AsSingle();
 
             return wrapper;
         }
@@ -109,13 +118,17 @@ namespace Assets.Scripts.Infrastructure.Factoris.TankFactory
             Material skinMaterial;
 
             if (skinId == string.Empty)
-                skinMaterial = await _assetProvider.Load<Material>(_staticDataService.GetTank(level).BaseMaterialAssetReference);
+                skinMaterial = await _assetProvider
+                    .Load<Material>(_staticDataService.GetTank(level).BaseMaterialAssetReference);
             else
-                skinMaterial = await _assetProvider.Load<Material>(_staticDataService.GetSkin(skinId).MaterialAssetReference);
+                skinMaterial = await _assetProvider
+                    .Load<Material>(_staticDataService.GetSkin(skinId).MaterialAssetReference);
 
-            Material decalMaterial = decalId == string.Empty ? null : await _assetProvider.Load<Material>(_staticDataService.GetDecal(decalId).MaterialAssetReference);
+            Material decalMaterial = decalId == string.Empty ? null : await
+                _assetProvider.Load<Material>(_staticDataService.GetDecal(decalId).MaterialAssetReference);
 
-            Tank tank = await _tankFactory.Create(_staticDataService.GetTank(level).AssetReference, position, rotation, parent);
+            Tank tank = await _tankFactory.Create(_staticDataService.GetTank(level).AssetReference,
+                position, rotation, parent);
 
             tank.Initialize(skinMaterial, decalMaterial, isDecalsChangable);
 
@@ -125,7 +138,8 @@ namespace Assets.Scripts.Infrastructure.Factoris.TankFactory
         public async UniTask<TankShootingWrapper> CreateTankShootingWrapper(uint tankLevel, Vector3 position,
             Quaternion rotation, Transform parent)
         {
-            return await _tankShootingWrapperFactory.Create(_staticDataService.GetTank(tankLevel).MainMenuWrapperAssetReference, position, rotation, parent);
+            return await _tankShootingWrapperFactory.Create(_staticDataService.GetTank(tankLevel)
+                .MainMenuWrapperAssetReference, position, rotation, parent);
         }
     }
 }

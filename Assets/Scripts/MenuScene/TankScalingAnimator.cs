@@ -17,7 +17,8 @@ namespace Assets.Scripts.MenuScene
                 passedTime += Time.deltaTime;
                 progress = passedTime / AnimationsConfig.TankScalingDuration;
 
-                transform.localScale = new Vector3(StartScale, StartScale * AnimationsConfig.TankScalingAnimationCurve.Evaluate(progress), StartScale);
+                transform.localScale = new Vector3(StartScale,
+                    StartScale * AnimationsConfig.TankScalingAnimationCurve.Evaluate(progress), StartScale);
 
                 yield return null;
             }

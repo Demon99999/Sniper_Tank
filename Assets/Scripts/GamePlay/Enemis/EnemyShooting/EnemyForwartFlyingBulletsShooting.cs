@@ -41,7 +41,8 @@ namespace Assets.Scripts.GamePlay.Enemis.EnemyShooting
 
         public bool CheckPlayerTankVisibility()
         {
-            return Physics.Raycast(LookStartPosition, (PlayerWrapper.transform.position - LookStartPosition).normalized, out RaycastHit hitInfo, RayCastDistance, _layerMask)
+            return Physics.Raycast(LookStartPosition, (PlayerWrapper.transform.position - LookStartPosition)
+                .normalized, out RaycastHit hitInfo, RayCastDistance, _layerMask)
                 && hitInfo.transform.TryGetComponent(out PlayerWrapper _);
         }
 

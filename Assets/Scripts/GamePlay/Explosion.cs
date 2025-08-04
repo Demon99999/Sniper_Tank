@@ -10,9 +10,6 @@ namespace Assets.Scripts.GamePlay
         private readonly Collider[] _overlapColliders = new Collider[32];
 
         [SerializeField] private ParticleSystem _explosionParticlePrefab;
-        //[SerializeField] private AudioSource _source;
-
-        public event Action Exploded;
 
         protected void CreateExplosionParticle(Vector3 position, Quaternion rotation)
         {
@@ -30,11 +27,8 @@ namespace Assets.Scripts.GamePlay
                 {
                     bool isDamageableCollided = Vector3.Distance(position, _overlapColliders[i].ClosestPoint(position)) < CollidingDelat;
                     damageable.TakeDamage(new ExplosionInfo(position, explosionForce, isDamageableCollided, damage));
-                    //_source.Play();
                 }
             }
-
-            Exploded?.Invoke();
         }
     }
 }

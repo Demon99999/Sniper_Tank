@@ -5,8 +5,6 @@ namespace Assets.Scripts.GamePlay.Enemis.Points
 {
     public class StaticEnemyPoint : MonoBehaviour
     {
-        public string Id;
-        public EnemyType EnemyType;
         public Transform StartPoint;
 
         protected virtual void OnDrawGizmos()
