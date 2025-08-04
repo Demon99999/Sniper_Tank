@@ -8,6 +8,10 @@ namespace Assets.Scripts.Data
     [Serializable]
     public class PlayerProgress
     {
+        private uint _startWallet = 2000000;
+        private uint _startLevel;
+        private uint _startLevelTank;
+
         public TankData[] Tanks;
         public TankSkinData[] TankSkins;
         public DecalData[] Decals;
@@ -40,11 +44,13 @@ namespace Assets.Scripts.Data
             SelectedTankLevel = Tanks.First(tank => tank.IsUnlocked).Level;
             CurrentLevelIndex = 0;
             SelectedPlayerCharacterId = PlayerCharacters.First(skin => skin.IsUnlocked).Id;
-            Wallet = new Wallet();
+            Wallet = new Wallet(_startWallet);
             TankBuyingData = new TankBuyingData(startTankBuyingCost);
             CompletedLevelsCount = 0;
             DeskData = new DeskData();
             IsSoundOn = true;
+            _startLevel = 1;
+            _startLevelTank = 1;
         }
 
         public event Action<uint> TankUnlocked;
@@ -62,6 +68,7 @@ namespace Assets.Scripts.Data
             if (tank.IsUnlocked == false)
             {
                 tank.IsUnlocked = true;
+                tank.IsFirstAppearance = true;
                 TankUnlocked?.Invoke(level);
                 TrySelectTank(level);
             }
@@ -152,14 +159,17 @@ namespace Assets.Scripts.Data
         public void SelectCharacterSkin(string id)
         {
             SelectedPlayerCharacterId = id;
+            CharacterSkinChanged?.Invoke(id);
+        }
 
-            CharacterData skinData = GetPlayerCharacter(id);
+        public uint LevelUpTank()
+        {
+            return _startLevelTank++;
+        }
 
-            if (skinData.IsUnlocked == false)
-            {
-                CharacterSkinChanged?.Invoke(id);
-            }
-            //CharacterSkinChanged?.Invoke(id);
+        public uint LevelUp()
+        {
+            return _startLevel++;
         }
     }
 }

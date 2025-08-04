@@ -9,6 +9,9 @@ namespace Assets.Scripts.Ui.Game.Gameplay
     public class TankGameplayWindow : GameplayWindow
     {
         [SerializeField] private ReloadPanel _reloadProgressBar;
+        [SerializeField] private CanvasGroup _gameInfoCanvasGroup;
+        [SerializeField] private CanvasGroup _optionsButton;
+        [SerializeField] private CanvasGroup _restartButton;
 
         private TankAiming _aiming;
         private PlayerTankWeapon _playerTankWeapon;
@@ -42,11 +45,17 @@ namespace Assets.Scripts.Ui.Game.Gameplay
             if (isAimed)
             {
                 OverviewAimCanvasGroup.alpha = 0;
+                _gameInfoCanvasGroup.alpha = 0;
+                _restartButton.alpha = 0;
+                _optionsButton.alpha = 0;
                 SetAimButtonActive(false);
             }
             else
             {
                 OverviewAimCanvasGroup.alpha = 1;
+                _gameInfoCanvasGroup.alpha = 1;
+                _optionsButton.alpha = 1;
+                _restartButton.alpha = 1;
             }
 
             if (_aimChanger != null)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerCharacterConfig 3
   m_EditorClassIdentifier: 
   Id: PlayerCharacter3
-  IsUnlockedOnStart: 0
+  IsUnlockedOnStart: 1
   AssetReference:
     m_AssetGUID: 8003853d00b47254ba6e141c73784c16
     m_SubObjectName: 

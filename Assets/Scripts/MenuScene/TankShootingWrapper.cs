@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.MenuScene.Weapons;
+﻿using System;
+using Assets.Scripts.MenuScene.Weapons;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -23,6 +24,16 @@ namespace Assets.Scripts.MenuScene
             _camera = camera;
 
             _tankShootingHandler.HandlePressed += OnHandlePressed;
+        }
+
+        public async void TryAutoShoot()
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f), ignoreTimeScale: false);
+
+            if (!_weapon.IsShooted && this != null && gameObject != null)
+            {
+                _weapon.Shoot(() => _shootingAnimator?.Play());
+            }
         }
 
         private void OnDestroy()

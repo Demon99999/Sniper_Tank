@@ -452,7 +452,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _source: {fileID: 7066166561769253202}
   _explosionDuration: 1
 --- !u!82 &4710639151729731681
 AudioSource:
@@ -657,10 +656,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5062784526437014987, guid: 27a7e8258ea045b408a494045b2e87b4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2cf8a2521b3d1ff4f8a7974ddc6d47d1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: -0.6
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -964,11 +963,11 @@ MonoBehaviour:
   _infos:
   - BiomeType: 2
     MaterialInfos:
-    - Material: {fileID: 2100000, guid: 4d366e93d4e86454ea6879d0456415f7, type: 2}
+    - Material: {fileID: 2100000, guid: ee10d07641f3ffa4da67902c7f549f8f, type: 2}
       Index: 0
   - BiomeType: 1
     MaterialInfos:
-    - Material: {fileID: 2100000, guid: ee10d07641f3ffa4da67902c7f549f8f, type: 2}
+    - Material: {fileID: 2100000, guid: 4d366e93d4e86454ea6879d0456415f7, type: 2}
       Index: 0
   - BiomeType: 0
     MaterialInfos:

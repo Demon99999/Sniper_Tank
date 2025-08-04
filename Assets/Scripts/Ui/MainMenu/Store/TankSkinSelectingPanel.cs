@@ -15,7 +15,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
     public class TankSkinSelectingPanel : SelectionPanel<string>
     {
         private const string Texture = "_Texture";
-        private const int RewardID = 6;
 
         [SerializeField] private Button _baseSkinButton;
 
@@ -27,13 +26,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         {
             _staticDataServcie = staticDataService;
             _assetProvider = assetProvider;
-
-            YandexGame.RewardVideoEvent += OnRewarded;
-        }
-
-        private void OnDestroy()
-        {
-            YandexGame.RewardVideoEvent -= OnRewarded;
         }
 
         protected override async UniTask<Dictionary<string, SelectingPanelElement>> FillContent(
@@ -75,17 +67,8 @@ namespace Assets.Scripts.Ui.MainMenu.Store
 
             if (tankSkinData.IsUnlocked == false)
             {
-                YandexGame.RewVideoShow(RewardID);
+                //YandexGame.RewVideoShow(RewardID);
                 persistentProgressService.Progress.UnlockTankSkin(key);
-
-//#if !UNITY_WEBGL || UNITY_EDITOR
-//                persistentProgressService.Progress.UnlockTankSkin(key);
-//#else
-//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-//            {
-//                persistentProgressService.Progress.UnlockTankSkin(key);
-//            });
-//#endif
             }
             else
             {
@@ -108,14 +91,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         private void OnBaseSkinButtonClicked()
         {
             PersistentProgressService.Progress.SelectTankSkin(string.Empty);
-        }
-
-        private void OnRewarded(int id)
-        {
-            if (id == RewardID)
-            {
-
-            }
         }
     }
 }

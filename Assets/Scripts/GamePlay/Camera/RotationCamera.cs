@@ -22,7 +22,7 @@ namespace Assets.Scripts.GamePlay.Camera
 
         public void ResetRotation()
         {
-            Rotation = _aimingConfig.StartRotation + new Vector2(0, _startRotation);
+            Rotation = _aimingConfig.DroneStartRotation + new Vector2(0, _startRotation);
             Rotate();
         }
 

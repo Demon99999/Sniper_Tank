@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Assets.Scripts.Data;
 using Assets.Scripts.Services.PersistentProgressServices;
@@ -43,8 +42,8 @@ namespace Assets.Scripts.Services.StateMachine.States
 
         private void LoadProgressOrInitNew()
         {
-            //_persistentProgressService.Progress = _saveLoadService.LoadProgress() ?? CreateNewProgress();
-            _persistentProgressService.Progress = CreateNewProgress();
+            _persistentProgressService.Progress = _saveLoadService.LoadProgress() ?? CreateNewProgress();
+            //_persistentProgressService.Progress = CreateNewProgress();
         }
 
         private PlayerProgress CreateNewProgress()
@@ -54,7 +53,6 @@ namespace Assets.Scripts.Services.StateMachine.States
             TankData[] tankDatas = _staticDataService.TankConfigs.Select(config => new TankData(config.Level, config.IsUnlockOnStart, startDecal)).ToArray();
             TankSkinData[] tankSkinDatas = _staticDataService.TankSkinConfigs.Select(config => new TankSkinData(config.Id)).ToArray();
             CharacterData[] characterSkinDatas = _staticDataService.PlayerCharacterCofigs.Select(config => new CharacterData(config.Id, config.IsUnlockedOnStart)).ToArray();
-            Debug.Log(characterSkinDatas.Length);
             PlayerProgress progress = new PlayerProgress(tankDatas, tankSkinDatas, decalDatas, 0, characterSkinDatas, _staticDataService.MainMenuSettingsConfig.StartPrice);
 
             return progress;

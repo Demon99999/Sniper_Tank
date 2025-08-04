@@ -13,6 +13,8 @@ namespace Assets.Scripts.Ui.Game.Gameplay
         [SerializeField] private CanvasGroup _enemiesCounterCanvasGroup;
         [SerializeField] private CanvasGroup _fade;
         [SerializeField] private float _fadeDuration;
+        [SerializeField] private CanvasGroup _returnButton;
+        [SerializeField] private CanvasGroup _optionsButton;
 
         private PlayerDroneWrapper _playerDroneWrapper;
         private DroneAiming _droneAiming;
@@ -39,6 +41,8 @@ namespace Assets.Scripts.Ui.Game.Gameplay
         {
             SetAimButtonActive(false);
             OverviewAimCanvasGroup.alpha = 0;
+            _optionsButton.alpha = 0;
+            _returnButton.alpha = 0;
 
             StartCoroutine(Fader(1, _fadeDuration, _fadeDuration, callback: () =>
             {
@@ -54,6 +58,8 @@ namespace Assets.Scripts.Ui.Game.Gameplay
         {
             SetAimButtonActive(true);
             OverviewAimCanvasGroup.alpha = 1;
+            _optionsButton.alpha = 1;
+            _returnButton.alpha = 1;
             AimingCanvasGroup.alpha = 0;
             _enemiesCounterCanvasGroup.alpha = 1;
             _cameraNoise.SetActive(false);

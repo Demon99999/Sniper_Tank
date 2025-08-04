@@ -222,7 +222,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &5527617183447019815
 MonoBehaviour:
@@ -237,7 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionParticlePrefab: {fileID: 5738518211207305529, guid: e0bc8922ba6683046bebe1ddeb0e687f, type: 3}
-  _source: {fileID: 1175342622397947753}
   _explosionDuration: 1
 --- !u!82 &1175342622397947753
 AudioSource:
@@ -598,13 +597,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _infos:
+  - BiomeType: 2
+    MaterialInfos:
+    - Material: {fileID: 2100000, guid: ee10d07641f3ffa4da67902c7f549f8f, type: 2}
+      Index: 0
+  - BiomeType: 1
+    MaterialInfos:
+    - Material: {fileID: 2100000, guid: 4d366e93d4e86454ea6879d0456415f7, type: 2}
+      Index: 0
   - BiomeType: 0
     MaterialInfos:
     - Material: {fileID: 2100000, guid: 15caf34f90b885b49b5dd24c8ab94434, type: 2}
-      Index: 0
-  - BiomeType: 2
-    MaterialInfos:
-    - Material: {fileID: 2100000, guid: 4d366e93d4e86454ea6879d0456415f7, type: 2}
       Index: 0
   _renderer: {fileID: 5479091057637816983}
 --- !u!1001 &3975299164334674863

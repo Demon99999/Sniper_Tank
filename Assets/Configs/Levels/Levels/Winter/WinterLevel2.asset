@@ -18,12 +18,8 @@ MonoBehaviour:
     StartPosition: {x: 10.12, y: 6.3, z: 44.26}
     StartRotation: {x: 0, y: 0.96455747, z: 0, w: -0.26387298}
     EnemyType: 7
-  - Id: Winter2_aa688f6d-e119-47e3-9acc-00b49aef455d
-    StartPosition: {x: 24.06, y: 6.3, z: 43.67}
-    StartRotation: {x: 0, y: 0.95956, z: 0, w: 0.2815043}
-    EnemyType: 7
   - Id: WinterGameplayScene2_40daa493-feb1-49f8-aadb-efd10ba7bb8e
-    StartPosition: {x: 32.363, y: 6.3, z: 18.529}
+    StartPosition: {x: 46.86, y: 6.3, z: 26.36}
     StartRotation: {x: 0, y: 0.8660254, z: 0, w: -0.5}
     EnemyType: 6
   - Id: GameplayScene_1bd176b9-8980-402a-837a-56ccb35cdbc5

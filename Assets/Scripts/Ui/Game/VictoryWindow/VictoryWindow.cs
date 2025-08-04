@@ -58,7 +58,7 @@ namespace Assets.Scripts.Ui.Game.VictoryWindow
             _saveLoadService = saveLoadService;
 
             _currentLevelValue.text = (_persistentProgressService.Progress.CurrentLevelIndex + 1).ToString();
-
+            
             _isContinueButtonClicked = false;
 
             _wictoryHandler.WindowsSwithed += OnWindowsSwitched;

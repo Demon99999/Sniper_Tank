@@ -9,6 +9,11 @@ namespace Assets.Scripts.Data
 
         public event Action ValueChanged;
 
+        public Wallet(uint startValue)
+        {
+            Value = startValue;
+        }
+
         public bool TryTake(uint value)
         {
             if (value > Value)

@@ -27,13 +27,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         {
             _staticDataService = staticDataService;
             _assetProvider = assetProvider;
-
-            YandexGame.RewardVideoEvent += OnRewarded;
-        }
-
-        private void OnDestroy()
-        {
-            YandexGame.RewardVideoEvent -= OnRewarded;
         }
 
         public override void Open()
@@ -109,15 +102,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
                 YandexGame.RewVideoShow(RewardID);
                 persistentProgressService.Progress.UnlockCharacterSkin(key);
                 persistentProgressService.Progress.BuyCharacterSkin(key);
-
-//#if !UNITY_WEBGL || UNITY_EDITOR
-//                persistentProgressService.Progress.BuyCharacterSkin(key);
-//#else
-//            Agava.YandexGames.InterstitialAd.Show(onCloseCallback: (value) =>
-//            {
-//                persistentProgressService.Progress.BuyCharacterSkin(key);
-//            });
-//#endif
             }
             else if (skinData.IsUnlocked && skinData.IsBuyed)
             {
@@ -140,14 +124,6 @@ namespace Assets.Scripts.Ui.MainMenu.Store
         protected override string GetCurrentSelectedPanel(IPersistentProgressService persistentProgressService)
         {
             return persistentProgressService.Progress.SelectedPlayerCharacterId;
-        }
-
-        private void OnRewarded(int id)
-        {
-            if (id == RewardID)
-            {
-                //persistentProgressService.Progress.BuyCharacterSkin(key);
-            }
         }
     }
 }

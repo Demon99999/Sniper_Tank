@@ -51,11 +51,28 @@ MonoBehaviour:
     WaitingTimeOnPoint: 0
     MaxRotationAngle: 10
     SpeedAfterAttack: 3
+  - Id: Desert6_37cdd5de-d887-47e2-a99a-83645ff1ecb7
+    StartPosition: {x: -20, y: 0, z: 49}
+    StartRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+    EnemyType: 10
+    Path:
+    - Position: {x: 79.6, y: 0, z: 62.2}
+      RotationAngle: 0
+      RotationDelta: 3
+    - Position: {x: 79.6, y: 0, z: 28.9}
+      RotationAngle: 0
+      RotationDelta: 3
+    Speed: 5
+    IsWaitedAttack: 0
+    IsPathLooped: 1
+    WaitingTimeOnPoint: 0
+    MaxRotationAngle: 15
+    SpeedAfterAttack: 3
   HelicopterPoints:
   - Id: Desert6_a380d407-ef00-4179-8103-641a4f61d8e2
     StartPosition: {x: 53.41, y: 9.8, z: 55.26}
     StartRotation: {x: 0, y: 0, z: 0, w: 1}
-    EnemyType: 5
+    EnemyType: 13
     Path:
     - Position: {x: 53.41, y: 9.8, z: 55.26}
       RotationAngle: 0
@@ -63,7 +80,7 @@ MonoBehaviour:
     - Position: {x: 80.69, y: 9.8, z: 55.26}
       RotationAngle: 0
       RotationDelta: 3
-    Speed: 12
+    Speed: 9
     IsWaitedAttack: 0
     IsPathLooped: 1
     WaitingTimeOnPoint: 0

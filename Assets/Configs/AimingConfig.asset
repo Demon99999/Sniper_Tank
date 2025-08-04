@@ -17,5 +17,6 @@ MonoBehaviour:
   TankTurretRotation: -75
   TankMovingDistanceModifier: 0.9
   StartRotation: {x: 24, y: 32}
-  MaxRotation: {x: 32, y: 65}
-  MinRotation: {x: -12, y: 0}
+  MaxRotation: {x: 40, y: 75}
+  MinRotation: {x: -20, y: -10}
+  DroneStartRotation: {x: 5, y: 32}
